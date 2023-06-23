@@ -1,0 +1,28 @@
+require:
+  - rubocop-rails
+  - rubocop-minitest
+
+# Require a frozen string literal comment at the top of each file
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Enforce the use of single quotes for non interpolated strings
+Style/StringLiterals:
+  Enabled: false
+
+# Require that all classes have a documentation comment
+Style/Documentation:
+  Enabled: false
+
+# Require that all methods have a documentation comment
+Style/DocumentationMethod:
+  Enabled: false
+  RequireForNonPublicMethods: false
+
+# Require all methods to use parentheses
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+
+# Require methods without args to not use parentheses
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
