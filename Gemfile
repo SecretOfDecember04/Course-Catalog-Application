@@ -17,7 +17,7 @@ gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', '~> 1.52', '>= 1.52.1'
   gem 'rubocop-minitest', '~> 0.31.0'
   gem 'rubocop-rails', '~> 2.20', '>= 2.20.1'
