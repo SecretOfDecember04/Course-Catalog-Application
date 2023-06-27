@@ -1,5 +1,6 @@
 require:
   - rubocop-rails
+  - rubocop-minitest
 
 # Require a frozen string literal comment at the top of each file
 Style/FrozenStringLiteralComment:
