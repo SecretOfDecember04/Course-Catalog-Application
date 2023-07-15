@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_15_165116) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_15_165648) do
   create_table "applications", force: :cascade do |t|
     t.string "student"
     t.string "course"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "availabilities", force: :cascade do |t|
+    t.string "student"
+    t.string "term"
+    t.string "day"
+    t.string "start_time"
+    t.string "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_15_165116) do
     t.boolean "is_approved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "availabilities"
   end
 
 end
