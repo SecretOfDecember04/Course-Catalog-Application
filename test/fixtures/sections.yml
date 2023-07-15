@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section_number: MyString
+  course: MyString
+  term: MyString
+  campus: MyString
+  instructor: MyString
+  days_times: MyString
+  instruction_mode: MyString
+  graders: 1
+  graders_required: 1
+
+two:
+  section_number: MyString
+  course: MyString
+  term: MyString
+  campus: MyString
+  instructor: MyString
+  days_times: MyString
+  instruction_mode: MyString
+  graders: 1
+  graders_required: 1
