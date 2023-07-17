@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-
-  root to: "home#index"
-
   resources :availabilities
   resources :applications
   resources :recommendations
@@ -10,4 +7,6 @@ Rails.application.routes.draw do
   resources :sections
   resources :users
   resources :courses
+
+  # root to: "home#index"
 end
