@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_17_234216) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_17_235139) do
   create_table "applications", force: :cascade do |t|
     t.string "student"
     t.string "course"
@@ -91,4 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_234216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "enrollments", "sections"
+  add_foreign_key "enrollments", "users"
 end
