@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  campus: MyString
-  term: MyString
-  component: MyString
-  catalog_number: 1
-  instruction_mode: MyString
+  course_number: MyString
+  subject: MyString
+  name: MyString
+  description: MyText
+  level: MyString
 
 two:
-  campus: MyString
-  term: MyString
-  component: MyString
-  catalog_number: 1
-  instruction_mode: MyString
+  course_number: MyString
+  subject: MyString
+  name: MyString
+  description: MyText
+  level: MyString

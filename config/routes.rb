@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  get 'courses/', to: 'courses#index'
+  resources :availabilities
+  resources :applications
+  resources :recommendations
+  resources :course_takens
+  resources :sections
+  resources :users
+  resources :courses
 end
