@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :sections
   resources :users
   resources :courses
-
-  # root to: "home#index"
+  authenticate :user do
+    root to: 'home#index', as: :authenticated_root
+  end
+  root to: redirect('/users/sign_in')
 end
