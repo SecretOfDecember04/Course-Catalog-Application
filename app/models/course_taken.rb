@@ -1,2 +1,0 @@
-class CourseTaken < ApplicationRecord
-end
