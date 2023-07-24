@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_17_235139) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_23_230343) do
   create_table "applications", force: :cascade do |t|
-    t.string "student"
-    t.string "course"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "course_id"
   end
 
   create_table "availabilities", force: :cascade do |t|
@@ -26,13 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_235139) do
     t.string "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "course_takens", force: :cascade do |t|
-    t.string "student"
-    t.string "course"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "instructor_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -53,25 +47,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_235139) do
   end
 
   create_table "recommendations", force: :cascade do |t|
-    t.string "instructor"
-    t.string "student"
-    t.string "section_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "instructor_id"
+    t.integer "student_id"
+    t.integer "section_id"
   end
 
   create_table "sections", force: :cascade do |t|
     t.string "section_number"
-    t.string "course"
     t.string "term"
-    t.string "campus"
-    t.string "instructor"
     t.string "days_times"
     t.string "instruction_mode"
     t.integer "graders"
     t.integer "graders_required"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "course_id"
+    t.integer "instructor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,6 +84,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_235139) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applications", "courses"
+  add_foreign_key "applications", "users"
+  add_foreign_key "availabilities", "users", column: "instructor_id"
   add_foreign_key "enrollments", "sections"
   add_foreign_key "enrollments", "users"
+  add_foreign_key "recommendations", "sections"
+  add_foreign_key "recommendations", "users", column: "instructor_id"
+  add_foreign_key "recommendations", "users", column: "student_id"
+  add_foreign_key "sections", "courses"
+  add_foreign_key "sections", "users", column: "instructor_id"
 end
