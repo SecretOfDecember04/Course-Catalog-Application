@@ -1,0 +1,2 @@
+class CourseTaken < ApplicationRecord
+end
