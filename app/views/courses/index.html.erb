@@ -1,14 +1,48 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Courses</h1>
+<h1 class="text-center">Course Catalog</h1>
 
-<div id="courses">
+<!--<head>-->
+<!--  <div class="ml-5 mr-5">-->
+<%#= bootstrap_form_tag url: "/courses", method: :get do |f| %>
+<%#= f.label "Search Courses" %>
+<%#= f.text_field :search, skip_label: true %>
+<%#= f.submit "Search" %>
+<%#= f.submit "Clear" %>
+<%# end %>
+<!--  </div>-->
+<!--</head>-->
+
+<body>
+<table id="coursesTable" class="table mt-3">
+  <thread>
+    <tr id="headerRow">
+      <th class="text-center">Course Number</th>
+      <th class="text-center">Subject</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Description</th>
+      <th class="text-center">Level</th>
+      <th class="text-center">Action</th>
+    </tr>
+  </thread>
+
+  <tbody>
   <% @courses.each do |course| %>
-    <%= render course %>
-    <p>
-      <%= link_to "Show this course", course %>
-    </p>
+    <tr>
+      <td class="text-center"><%= course.course_number %></td>
+      <td class="text-center"><%= course.subject %></td>
+      <td class="text-center"><%= course.name %></td>
+      <td class="text-center"><%= course.description %></td>
+      <td class="text-center"><%= course.level %></td>
+      <td class="text-center"><%= link_to "Show this course", course, class: "btn btn-primary" %></td>
+    </tr>
   <% end %>
+  </tbody>
+</table>
+</body>
+
+<div class="d-flex justify-content-between align-items-center mt-3 px-4">
+  <%== pagy_bootstrap_nav(@pagy) %>
+  <%= link_to "New course", new_course_path, class: "btn btn-success" %>
 </div>
 
-<%= link_to "New course", new_course_path %>

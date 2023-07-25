@@ -3,7 +3,7 @@ class SectionsController < ApplicationController
 
   # GET /sections or /sections.json
   def index
-    @sections = Section.all
+    @pagy, @sections = pagy(Section.all)
   end
 
   # GET /sections/1 or /sections/1.json
