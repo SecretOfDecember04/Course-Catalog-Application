@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_201521) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_23_230343) do
   create_table "applications", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_201521) do
     t.string "first_name"
     t.string "last_name"
     t.string "role"
+    t.boolean "is_approved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "availabilities"
@@ -80,7 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_201521) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "is_approved", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
