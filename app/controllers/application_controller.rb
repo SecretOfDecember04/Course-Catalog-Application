@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name role is_approved])
     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname])
   end
+  include Pagy::Backend
 end

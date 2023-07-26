@@ -40,4 +40,9 @@ group :test do
   gem "webdrivers",               "5.0.0"
 end
 
+gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap_form', '~> 5.1'
+
 gem "devise", "~> 4.9"
+
+gem 'pagy'
