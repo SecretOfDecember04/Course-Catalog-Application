@@ -1,1 +1,1 @@
-json.partial! "recommendations/recommendation", recommendation: @recommendation
+json.partial!("recommendations/recommendation", recommendation: @recommendation)

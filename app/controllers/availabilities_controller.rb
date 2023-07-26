@@ -1,5 +1,5 @@
 class AvailabilitiesController < ApplicationController
-  before_action :set_availability, only: %i[ show edit update destroy ]
+  before_action :set_availability, only: %i[show edit update destroy]
 
   # GET /availabilities or /availabilities.json
   def index
@@ -7,8 +7,7 @@ class AvailabilitiesController < ApplicationController
   end
 
   # GET /availabilities/1 or /availabilities/1.json
-  def show
-  end
+  def show; end
 
   # GET /availabilities/new
   def new
@@ -16,8 +15,7 @@ class AvailabilitiesController < ApplicationController
   end
 
   # GET /availabilities/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /availabilities or /availabilities.json
   def create
@@ -25,11 +23,11 @@ class AvailabilitiesController < ApplicationController
 
     respond_to do |format|
       if @availability.save
-        format.html { redirect_to availability_url(@availability), notice: "Availability was successfully created." }
-        format.json { render :show, status: :created, location: @availability }
+        format.html { redirect_to(availability_url(@availability), notice: "Availability was successfully created.") }
+        format.json { render(:show, status: :created, location: @availability) }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @availability.errors, status: :unprocessable_entity }
+        format.html { render(:new, status: :unprocessable_entity) }
+        format.json { render(json: @availability.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -38,11 +36,11 @@ class AvailabilitiesController < ApplicationController
   def update
     respond_to do |format|
       if @availability.update(availability_params)
-        format.html { redirect_to availability_url(@availability), notice: "Availability was successfully updated." }
-        format.json { render :show, status: :ok, location: @availability }
+        format.html { redirect_to(availability_url(@availability), notice: "Availability was successfully updated.") }
+        format.json { render(:show, status: :ok, location: @availability) }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @availability.errors, status: :unprocessable_entity }
+        format.html { render(:edit, status: :unprocessable_entity) }
+        format.json { render(json: @availability.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -52,19 +50,20 @@ class AvailabilitiesController < ApplicationController
     @availability.destroy
 
     respond_to do |format|
-      format.html { redirect_to availabilities_url, notice: "Availability was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to(availabilities_url, notice: "Availability was successfully destroyed.") }
+      format.json { head(:no_content) }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_availability
-      @availability = Availability.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def availability_params
-      params.require(:availability).permit(:student, :term, :day, :start_time, :end_time)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_availability
+    @availability = Availability.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def availability_params
+    params.require(:availability).permit(:student, :term, :day, :start_time, :end_time)
+  end
 end

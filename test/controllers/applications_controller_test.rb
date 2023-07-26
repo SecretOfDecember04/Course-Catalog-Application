@@ -34,7 +34,8 @@ class ApplicationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update application" do
-    patch application_url(@application), params: { application: { course: @application.course, student: @application.student } }
+    patch application_url(@application),
+          params: { application: { course: @application.course, student: @application.student } }
     assert_redirected_to application_url(@application)
   end
 
