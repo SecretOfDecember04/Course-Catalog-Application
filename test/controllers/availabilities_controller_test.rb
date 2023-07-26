@@ -17,7 +17,9 @@ class AvailabilitiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create availability" do
     assert_difference("Availability.count") do
-      post availabilities_url, params: { availability: { day: @availability.day, end_time: @availability.end_time, start_time: @availability.start_time, student: @availability.student, term: @availability.term } }
+      post availabilities_url,
+           params: { availability: { day: @availability.day, end_time: @availability.end_time,
+                                     start_time: @availability.start_time, student: @availability.student, term: @availability.term } }
     end
 
     assert_redirected_to availability_url(Availability.last)
@@ -34,7 +36,9 @@ class AvailabilitiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update availability" do
-    patch availability_url(@availability), params: { availability: { day: @availability.day, end_time: @availability.end_time, start_time: @availability.start_time, student: @availability.student, term: @availability.term } }
+    patch availability_url(@availability),
+          params: { availability: { day: @availability.day, end_time: @availability.end_time,
+                                    start_time: @availability.start_time, student: @availability.student, term: @availability.term } }
     assert_redirected_to availability_url(@availability)
   end
 

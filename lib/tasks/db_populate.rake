@@ -9,7 +9,6 @@ namespace :db do
     }
     response = api_service.courses(search_params)
 
-    data = response['data']
     courses = response.dig('data', 'courses')
 
     courses&.each do |course|

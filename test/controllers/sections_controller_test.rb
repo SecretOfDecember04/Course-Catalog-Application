@@ -17,7 +17,9 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create section" do
     assert_difference("Section.count") do
-      post sections_url, params: { section: { campus: @section.campus, course: @section.course, days_times: @section.days_times, graders: @section.graders, graders_required: @section.graders_required, instruction_mode: @section.instruction_mode, instructor: @section.instructor, section_number: @section.section_number, term: @section.term } }
+      post sections_url,
+           params: { section: { campus: @section.campus, course: @section.course, days_times: @section.days_times,
+                                graders: @section.graders, graders_required: @section.graders_required, instruction_mode: @section.instruction_mode, instructor: @section.instructor, section_number: @section.section_number, term: @section.term } }
     end
 
     assert_redirected_to section_url(Section.last)
@@ -34,7 +36,9 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update section" do
-    patch section_url(@section), params: { section: { campus: @section.campus, course: @section.course, days_times: @section.days_times, graders: @section.graders, graders_required: @section.graders_required, instruction_mode: @section.instruction_mode, instructor: @section.instructor, section_number: @section.section_number, term: @section.term } }
+    patch section_url(@section),
+          params: { section: { campus: @section.campus, course: @section.course, days_times: @section.days_times,
+                               graders: @section.graders, graders_required: @section.graders_required, instruction_mode: @section.instruction_mode, instructor: @section.instructor, section_number: @section.section_number, term: @section.term } }
     assert_redirected_to section_url(@section)
   end
 
