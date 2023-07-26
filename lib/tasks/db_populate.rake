@@ -1,7 +1,7 @@
 namespace :db do
   desc "Populate the database with initial course data from the OSU Classes API"
   task populate: :environment do
-    api_service = api_service.new
+    api_service = ApiService.new
     search_params = {
       q: 'cse',
       campus: 'col',
