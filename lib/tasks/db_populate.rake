@@ -49,6 +49,7 @@ namespace :db do
             days_times += "#{day_name}: #{meeting['startTime']} - #{meeting['endTime']}, " if meeting[day.to_s]
           end
         end
+        days_times = days_times.chomp(', ')
 
         # Populate instructor
         instructors = section['instructors']
