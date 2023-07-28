@@ -7,7 +7,6 @@ namespace :db do
       campus: 'col',
       term: '1238'
     }
-    # TODO: Handle sections
     # TODO: Handle pagination
     response = api_service.courses(search_params)
 
@@ -33,30 +32,28 @@ namespace :db do
 
       sections = course['sections']
       sections&.each do |section|
-        section_number = section.dig('sections', 'classNumber')
+        section_number = section['classNumber']
         term = '1238'
-        instruction_mode = section.dig('sections', 'instructionMode')
+        instruction_mode = section['instructionMode']
         graders = nil
         graders_required = 0
         days = { monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday', thursday: 'Thursday', friday: 'Friday' }
-        
+
         days_times = ""
         instructor = ""
 
         # Populate days_times
-        meetings = section.dig('sections', 'meetings')
+        meetings = section['meetings']
         meetings&.each do |meeting|
           days.each do |day, day_name|
-            days_times += "#{day_name}, " if meeting[day.to_s]
+            days_times += "#{day_name}: #{meeting['startTime']} - #{meeting['endTime']}, " if meeting[day.to_s]
           end
-          days_times += "#{meeting['startTime']} - #{meeting['endTime']}, "
-          days_times = days_times.chomp(', ')
         end
 
         # Populate instructor
-        instructors = section.dig('sections', 'instructors')
-        instructors&.each do
-          instructor += "#{section.dig('instructors', 'email')}, "
+        instructors = section['instructors']
+        instructors&.each do |single_instructor|
+          instructor += "#{single_instructor['email']}, "
         end
         instructor = instructor.chomp(', ')
         
