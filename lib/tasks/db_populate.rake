@@ -33,7 +33,7 @@ namespace :db do
 
       sections = course['sections']
       sections&.each do |section|
-        class_number = section.dig('sections', 'classNumber')
+        section_number = section.dig('sections', 'classNumber')
         term = '1238'
         instruction_mode = section.dig('sections', 'instructionMode')
         graders = nil
@@ -61,7 +61,7 @@ namespace :db do
         instructor = instructor.chomp(', ')
         
         Section.create(
-          class_number:,
+          section_number:,
           term:,
           instruction_mode:,
           graders:,
