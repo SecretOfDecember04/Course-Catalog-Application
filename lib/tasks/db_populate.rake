@@ -14,6 +14,7 @@ namespace :db do
     courses = response.dig('data', 'courses')
 
     Course.delete_all
+    Section.delete_all
 
     courses&.each do |course|
       name = course.dig('course', 'title')
@@ -29,6 +30,46 @@ namespace :db do
         description:,
         level:
       )
+
+      sections = course['sections']
+      sections&.each do |section|
+        class_number = section.dig('sections', 'classNumber')
+        term = '1238'
+        instruction_mode = section.dig('sections', 'instructionMode')
+        graders = nil
+        graders_required = 0
+        days = { monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday', thursday: 'Thursday', friday: 'Friday' }
+        
+        days_times = ""
+        instructor = ""
+
+        # Populate days_times
+        meetings = section.dig('sections', 'meetings')
+        meetings&.each do |meeting|
+          days.each do |day, day_name|
+            days_times += "#{day_name}, " if meeting[day.to_s]
+          end
+          days_times += "#{meeting['startTime']} - #{meeting['endTime']}, "
+          days_times = days_times.chomp(', ')
+        end
+
+        # Populate instructor
+        instructors = section.dig('sections', 'instructors')
+        instructors&.each do
+          instructor += "#{section.dig('instructors', 'email')}, "
+        end
+        instructor = instructor.chomp(', ')
+        
+        Section.create(
+          class_number:,
+          term:,
+          instruction_mode:,
+          graders:,
+          graders_required:,
+          days_times:,
+          instructor:
+        )
+      end
     end
   end
 end
