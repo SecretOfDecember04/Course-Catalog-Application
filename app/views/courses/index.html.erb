@@ -16,11 +16,11 @@
 </head>
 <body>
 
-<div id="searchBar">
-  <input type="text" id="searchInput" placeholder="Search your Course...">
-  <button id="search-button">Search</button>
+<%= form_tag courses_path, method: :get, id: "searchBar" do %>
+  <%= text_field_tag :search, params[:search], id: "searchInput", placeholder: "Search your Course..." %>
+  <%= submit_tag "Search", name: nil, id: "search-button" %>
+<% end %>
 
-</div>
 <p style="color: green"><%= notice %></p>
 
 <h1 class="text-center">Course Catalog</h1>
