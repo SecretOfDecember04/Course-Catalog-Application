@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
-    @pagy, @courses = pagy(Course.all)
+    @pagy, @courses = pagy(Course.order(course_number: :asc).all)
   end
 
   # GET /courses/1 or /courses/1.json
