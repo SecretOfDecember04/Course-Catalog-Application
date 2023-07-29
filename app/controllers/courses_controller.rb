@@ -3,10 +3,16 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
+    @terms = Course.distinct.pluck(:term)
+
     if params[:search].present?
       @pagy, @courses = pagy(
         Course.where("course_number LIKE :search OR subject LIKE :search OR name LIKE :search OR description LIKE :search OR level LIKE :search",
                      search: "%#{params[:search]}%")
+      )
+    elsif params[:term].present?
+      @pagy, @courses = pagy(
+        Course.where(term: params[:term])
       )
     else
       @pagy, @courses = pagy(Course.all)

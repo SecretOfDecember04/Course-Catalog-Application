@@ -18,6 +18,7 @@
 
 <%= form_tag courses_path, method: :get, id: "searchBar" do %>
   <%= text_field_tag :search, params[:search], id: "searchInput", placeholder: "Search your Course..." %>
+  <%= select_tag :term, options_for_select([['All Terms', '']] + term_options_for_select, params[:term]), prompt: 'Select Term' %>
   <%= submit_tag "Search", name: nil, id: "search-button" %>
 <% end %>
 
