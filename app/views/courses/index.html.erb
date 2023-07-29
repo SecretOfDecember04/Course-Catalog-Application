@@ -68,7 +68,10 @@
 
 <div class="d-flex justify-content-between align-items-center mt-3 px-4">
   <%== pagy_bootstrap_nav(@pagy) %>
-  <%= link_to "New course", new_course_path, class: "btn btn-success" %>
+  <% if current_user&.role== 'Admin'  %>
+    <%= link_to "New course", new_course_path, class: "btn btn-success" %>
+  <% end %>
+
 </div>
 
 
