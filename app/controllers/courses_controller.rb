@@ -5,18 +5,22 @@ class CoursesController < ApplicationController
   def index
     @terms = Course.distinct.pluck(:term)
 
+    sort = params[:sort] || 'course_number'
+    direction = params[:direction] || 'asc'
+
+    @courses = Course.order(sort => direction)
+
+    if params[:term].present?
+      @courses = @courses.where(term: params[:term])
+    end
+
     if params[:search].present?
       @pagy, @courses = pagy(
-        Course.where("course_number LIKE :search OR subject LIKE :search OR name LIKE :search OR description LIKE :search OR level LIKE :search",
-                     search: "%#{params[:search]}%")
-          .sorted_by_course_number(sort_order)
-      )
-    elsif params[:term].present?
-      @pagy, @courses = pagy(
-        Course.where(term: params[:term])
+        @courses.where("course_number LIKE :search OR subject LIKE :search OR name LIKE :search OR description LIKE :search OR level LIKE :search",
+                       search: "%#{params[:search]}%")
       )
     else
-      @pagy, @courses = pagy(Course.all)
+      @pagy, @courses = pagy(@courses)
     end
   end
 
