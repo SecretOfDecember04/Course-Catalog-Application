@@ -25,7 +25,7 @@ namespace :db do
         level = course.dig('course', 'catalogLevel')
         term_courses = term_code
 
-        Course.create(
+        course_entry = Course.create(
           name:,
           course_number:,
           subject:,
@@ -65,10 +65,10 @@ namespace :db do
             instructor += "#{single_instructor['email']}, "
           end
           instructor = instructor.chomp(', ')
-          
-          Section.create(
+
+          course_entry.sections.create(
             section_number:,
-            term: term_sections,
+            term: term_courses,
             instruction_mode:,
             graders:,
             graders_required:,
