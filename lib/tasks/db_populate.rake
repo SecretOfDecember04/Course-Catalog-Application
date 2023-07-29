@@ -23,19 +23,21 @@ namespace :db do
         subject = course.dig('course', 'subject')
         description = course.dig('course', 'description')
         level = course.dig('course', 'catalogLevel')
+        term_courses = term_code
 
         Course.create(
           name:,
           course_number:,
           subject:,
           description:,
-          level:
+          level:,
+          term: term_courses
         )
 
         sections = course['sections']
         sections&.each do |section|
           section_number = section['classNumber']
-          term = term_code
+          term_sections = term_code
           instruction_mode = section['instructionMode']
           graders = nil
           graders_required = 0
@@ -62,7 +64,7 @@ namespace :db do
           
           Section.create(
             section_number:,
-            term:,
+            term: term_sections,
             instruction_mode:,
             graders:,
             graders_required:,
