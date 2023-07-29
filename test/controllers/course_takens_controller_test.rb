@@ -34,7 +34,8 @@ class CourseTakensControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update course_taken" do
-    patch course_taken_url(@course_taken), params: { course_taken: { course: @course_taken.course, grader: @course_taken.grader } }
+    patch course_taken_url(@course_taken),
+          params: { course_taken: { course: @course_taken.course, grader: @course_taken.grader } }
     assert_redirected_to course_taken_url(@course_taken)
   end
 

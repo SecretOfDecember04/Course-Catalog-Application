@@ -1,1 +1,1 @@
-json.array! @recommendations, partial: "recommendations/recommendation", as: :recommendation
+json.array!(@recommendations, partial: "recommendations/recommendation", as: :recommendation)

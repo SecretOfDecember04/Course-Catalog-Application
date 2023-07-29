@@ -1,3 +1,31 @@
+<head>
+    <title>Course Catalog</title>
+    <style>
+      #searchBar{
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          display: flex;
+          align-items: center;
+      }
+
+      #searchInput{
+          margin-right: 10px;
+      }
+
+      #search-button {
+          margin-left: 10px;
+      }
+    </style>
+</head>
+<body>
+
+<%= form_tag courses_path, method: :get, id: "searchBar" do %>
+  <%= text_field_tag :search, params[:search], id: "searchInput", placeholder: "Search your Course..." %>
+  <%= select_tag :term, options_for_select([['All Terms', '']] + term_options_for_select, params[:term]), prompt: 'Select Term' %>
+  <%= submit_tag "Search", name: nil, id: "search-button" %>
+<% end %>
+
 <p style="color: green"><%= notice %></p>
 
 <h1 class="text-center">Course Catalog</h1>
@@ -13,23 +41,28 @@
 <!--  </div>-->
 <!--</head>-->
 
-<body>
+
 <table id="coursesTable" class="table mt-3">
-  <thread>
-    <tr id="headerRow">
-      <th class="text-center">Course Number</th>
-      <th class="text-center">Subject</th>
-      <th class="text-center">Name</th>
-      <th class="text-center">Description</th>
-      <th class="text-center">Level</th>
-      <th class="text-center">Action</th>
-    </tr>
-  </thread>
+  <thead>
+  <tr id="headerRow">
+    <th class="text-center">
+      Course Number
+      <%= link_to "", { sort: sort_order == 'asc' ? 'desc' : 'asc' }, { class: 'text-white' } %>
+    </th>
+    <th class="text-center">Term</th>
+    <th class="text-center">Subject</th>
+    <th class="text-center">Name</th>
+    <th class="text-center">Description</th>
+    <th class="text-center">Level</th>
+    <th class="text-center">Action</th>
+  </tr>
+  </thead>
 
   <tbody>
   <% @courses.each do |course| %>
     <tr>
       <td class="text-center"><%= course.course_number %></td>
+      <td class="text-center"><%= course.term %></td>
       <td class="text-center"><%= course.subject %></td>
       <td class="text-center"><%= course.name %></td>
       <td class="text-center"><%= course.description %></td>
@@ -43,6 +76,10 @@
 
 <div class="d-flex justify-content-between align-items-center mt-3 px-4">
   <%== pagy_bootstrap_nav(@pagy) %>
-  <%= link_to "New course", new_course_path, class: "btn btn-success" %>
+  <% if current_user&.role== 'Admin'  %>
+    <%= link_to "New course", new_course_path, class: "btn btn-success" %>
+  <% end %>
+
 </div>
+
 

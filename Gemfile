@@ -5,6 +5,7 @@ ruby "3.2.0"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
+gem 'httparty', '~> 0.21.0'
 gem "jbuilder"
 gem "jsbundling-rails"
 gem "puma", "~> 5.0"

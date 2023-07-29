@@ -17,7 +17,9 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create recommendation" do
     assert_difference("Recommendation.count") do
-      post recommendations_url, params: { recommendation: { instructor: @recommendation.instructor, section_number: @recommendation.section_number, student: @recommendation.student } }
+      post recommendations_url,
+           params: { recommendation: { instructor: @recommendation.instructor, section_number: @recommendation.section_number,
+                                       student: @recommendation.student } }
     end
 
     assert_redirected_to recommendation_url(Recommendation.last)
@@ -34,7 +36,9 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update recommendation" do
-    patch recommendation_url(@recommendation), params: { recommendation: { instructor: @recommendation.instructor, section_number: @recommendation.section_number, student: @recommendation.student } }
+    patch recommendation_url(@recommendation),
+          params: { recommendation: { instructor: @recommendation.instructor, section_number: @recommendation.section_number,
+                                      student: @recommendation.student } }
     assert_redirected_to recommendation_url(@recommendation)
   end
 
