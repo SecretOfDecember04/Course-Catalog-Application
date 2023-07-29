@@ -11,4 +11,8 @@ module ApplicationHelper
   def term_options_for_select
     TERM_OPTIONS.map { |number, name| [name, number] }
   end
+
+  def sort_order
+    %w[asc desc].include?(params[:sort]) ? params[:sort] : 'asc'
+  end
 end

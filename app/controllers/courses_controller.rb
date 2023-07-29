@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
       @pagy, @courses = pagy(
         Course.where("course_number LIKE :search OR subject LIKE :search OR name LIKE :search OR description LIKE :search OR level LIKE :search",
                      search: "%#{params[:search]}%")
+          .sorted_by_course_number(sort_order)
       )
     elsif params[:term].present?
       @pagy, @courses = pagy(
