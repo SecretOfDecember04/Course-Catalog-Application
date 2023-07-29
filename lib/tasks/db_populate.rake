@@ -4,7 +4,7 @@ namespace :db do
     Course.delete_all
     Section.delete_all
 
-    terms = { '1222' => 'Spring 2022', '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
+    terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
     terms.each do |term_code, term_name|
       api_service = ApiService.new
       search_params = {
