@@ -39,21 +39,25 @@ namespace :db do
           section_number = section['classNumber']
           term_sections = term_code
           instruction_mode = section['instructionMode']
-          graders = nil
+          graders = 0
           graders_required = 0
-          days = { monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday', thursday: 'Thursday', friday: 'Friday' }
 
-          days_times = ""
+          days_hash = { monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday', thursday: 'Thursday', friday: 'Friday' }
+          days = ""
+          start_time = ""
+          end_time = ""
           instructor = ""
 
-          # Populate days_times
+          # Populate days
           meetings = section['meetings']
           meetings&.each do |meeting|
-            days.each do |day, day_name|
-              days_times += "#{day_name}: #{meeting['startTime']} - #{meeting['endTime']}, " if meeting[day.to_s]
+            days_hash.each do |day, day_name|
+              days += "#{day_name}, " if meeting[day.to_s]
+              start_time = meeting['startTime']
+              end_time = meeting['endTime']
             end
           end
-          days_times = days_times.chomp(', ')
+          days = days.chomp(', ')
 
           # Populate instructor
           instructors = section['instructors']
@@ -68,7 +72,9 @@ namespace :db do
             instruction_mode:,
             graders:,
             graders_required:,
-            days_times:,
+            days:,
+            start_time:,
+            end_time:,
             instructor:
           )
         end
