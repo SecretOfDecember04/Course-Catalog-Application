@@ -41,6 +41,7 @@
   <thread>
     <tr id="headerRow">
       <th class="text-center">Course Number</th>
+      <th class="text-center">Term</th>
       <th class="text-center">Subject</th>
       <th class="text-center">Name</th>
       <th class="text-center">Description</th>
@@ -53,6 +54,7 @@
   <% @courses.each do |course| %>
     <tr>
       <td class="text-center"><%= course.course_number %></td>
+      <td class="text-center"><%= course.term %></td>
       <td class="text-center"><%= course.subject %></td>
       <td class="text-center"><%= course.name %></td>
       <td class="text-center"><%= course.description %></td>
