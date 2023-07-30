@@ -3,6 +3,26 @@
 <%= render @application %>
 
 <div>
+  <h2>Availabilities</h2>
+  <table id="coursesTable" class="table mt-3">
+    <thead>
+    <tr id="headerRow">
+      <th class="text-center">Day</th>
+      <th class="text-center">Start Time</th>
+      <th class="text-center">End Time</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @application.user.availabilities.each do |availability| %>
+      <tr>
+        <td class="text-center"><%= availability.day %></td>
+        <td class="text-center"><%= availability.start_time %></td>
+        <td class="text-center"><%= availability.end_time %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
   <%= link_to "Edit this application", edit_application_path(@application) %> |
   <%= link_to "Back to applications", applications_path %>
 
