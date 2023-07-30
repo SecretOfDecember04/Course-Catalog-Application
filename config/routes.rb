@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :recommendations
   resources :sections
   resources :courses
-  resources :enrollments, only: [:create]
+  resources :enrollments
+  resources :admin
   authenticate :user do
     root to: 'courses#index', as: :authenticated_root
   end
