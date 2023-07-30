@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_29_182410) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_30_085448) do
   create_table "applications", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "course_id"
+    t.boolean "approved"
   end
 
   create_table "availabilities", force: :cascade do |t|

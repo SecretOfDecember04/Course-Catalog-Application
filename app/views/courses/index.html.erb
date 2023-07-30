@@ -65,7 +65,7 @@
                 <%= link_to "Show this course", course, class: "btn btn-primary btn-block" %>
               </div>
               <div class="col">
-                <%= link_to "Apply", course, class: "btn btn-secondary btn-block" %>
+                <%= link_to "Apply", new_application_url, class: "btn btn-secondary btn-block" %>
               </div>
               <div class="col">
                 <% if current_user&.role == 'Admin' %>
