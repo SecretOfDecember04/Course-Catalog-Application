@@ -8,7 +8,10 @@
         <%= link_to 'Course History', enrollments_path, class: 'btn btn-primary' %>
         <%= link_to 'Availability', availabilities_path, class: 'btn btn-primary' %>
         <% if current_user.role == "Admin" %>
-          <%= link_to 'Admin Portal', admin_index_path, class: 'btn btn-primary' %>
+          <div class="buttons" style="margin-top: 10px;">
+            <%= link_to 'Admin Portal', admin_index_path, class: 'btn btn-primary' %>
+            <%= link_to 'Reload Courses', 'courses/reload', method: :get, class: "btn btn-primary" %>
+          </div>
         <% end %>
       </div>
       <p>Welcome, <%= current_user.email %>!</p>

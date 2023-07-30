@@ -73,6 +73,12 @@ class CoursesController < ApplicationController
     end
   end
 
+  # Reload courses.
+  def reload
+    system("rake db:populate")
+    redirect_to(courses_path, notice: 'Courses reloaded.')
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'enrollments/index'
+  get 'courses/reload', to: 'courses#reload'
   devise_for :users
   resources :availabilities
   resources :applications
