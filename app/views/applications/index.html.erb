@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-  <% @applications.each do |application| %>
+  <% @applications.where(user_id: current_user.id).each do |application| %>
     <tr>
       <td class="text-center"><%= application.course.course_number %></td>
       <td class="text-center"><%= application.course.term %></td>
