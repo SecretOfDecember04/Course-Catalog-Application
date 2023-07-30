@@ -5,6 +5,8 @@
       <div class="buttons">
         <%= link_to 'Home', root_path, class: 'btn btn-primary' %>
         <%= link_to 'Applications', applications_path, class: 'btn btn-primary' %>
+        <%= link_to 'Course History', enrollments_path, class: 'btn btn-primary' %>
+        <%= link_to 'Availability', availabilities_path, class: 'btn btn-primary' %>
         <% if current_user.role == "Admin" %>
           <%= link_to 'Admin Portal', admin_index_path, class: 'btn btn-primary' %>
         <% end %>
