@@ -63,7 +63,7 @@
               <div class="col">
                 <%= link_to "Show this course", course, class: "btn btn-primary btn-block" %>
               </div>
-              <div class="col">
+              <div class="col" style="margin-top: 5px;">
                 <%= form_tag applications_path, method: :post do %>
                   <%= hidden_field_tag :user_id, current_user.id %>
                   <%= hidden_field_tag :course_id, course.id %>
@@ -71,11 +71,15 @@
                   <%= button_tag "Apply", class: "btn btn-secondary btn-block", type: "submit" %>
                 <% end %>
               </div>
-              <div class="col">
+              <div class="col" style="margin-top: 5px;">
+                <% if current_user&.role == 'Student' %>
+                  <%= button_to 'Add to taken Courses', enrollments_path(course_id: course.id), method: :post, class: "btn btn-primary btn-block", style: "margin-top: 10px;" %>
+                <% end %>
+              </div>
+              <div class="col" style="margin-top: 5px;">
                 <% if current_user&.role == 'Admin' %>
                   <%= link_to "Delete", course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %>
                   <%= link_to "Edit", edit_course_path(course), class: "btn btn-info btn-block" %>
-
                 <% end %>
               </div>
             </div>
