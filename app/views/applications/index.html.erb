@@ -3,6 +3,8 @@
 <h1>Applications</h1>
 
 <div id="applications">
+  To apply for a course visit the courses table and hit "apply"
+
   <% @applications.each do |application| %>
     <%= render application %>
     <p>
@@ -11,4 +13,4 @@
   <% end %>
 </div>
 
-<%= link_to "New application", new_application_path %>
+<%#= link_to "New application", new_application_path %>
