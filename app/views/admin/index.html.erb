@@ -1,0 +1,40 @@
+<h1>Admin Portal</h1>
+<hr/>
+<% if current_user.role == "Admin" && current_user.is_approved == true %>
+  <h1>Applications</h1>
+  <table id="coursesTable" class="table mt-3">
+    <thead>
+    <tr id="headerRow">
+      <th class="text-center">Course Number</th>
+      <th class="text-center">Term</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Subject</th>
+      <th class="text-center">User</th>
+      <th class="text-center">Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @applications.each do |application| %>
+      <tr>
+        <td class="text-center"><%= application.course.course_number %></td>
+        <td class="text-center"><%= application.course.term %></td>
+        <td class="text-center"><%= application.course.name %></td>
+        <td class="text-center"><%= application.course.subject %></td>
+        <td class="text-center"><%= application.user.email %></td>
+        <td class="text-center">
+          <div class="container">
+            <div class="row">
+              <div class="column">
+                <div class="col">
+                  <%= link_to "Show this Application", application, class: "btn btn-primary btn-block" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

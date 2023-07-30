@@ -1,12 +1,39 @@
 <div id="<%= dom_id application %>">
   <p>
-    <strong>User ID:</strong>
-    <%= application.user %>
+    <strong>Email:</strong>
+    <%= application.user.email %>
   </p>
-
   <p>
-    <strong>Course ID:</strong>
-    <%= application.course %>
+    <strong>Role:</strong>
+    <%= application.user.role %>
   </p>
-
+  <p>
+    <strong>First:</strong>
+    <%= application.user.first_name %>
+  </p>
+  <p>
+    <strong>Last:</strong>
+    <%= application.user.last_name %>
+  </p>
+  <hr class="dashed">
+  <p>
+    <strong>Course Number:</strong>
+    <%= application.course.course_number %>
+  </p>
+  <p>
+    <strong>Term:</strong>
+    <%= application.course.term %>
+  </p>
+  <p>
+    <strong>Subject:</strong>
+    <%= application.course.subject %>
+  </p>
+  <p>
+    <strong>Course:</strong>
+    <%= application.course.name %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= application.course.description %>
+  </p>
 </div>
