@@ -24,7 +24,7 @@
 
 <h1 class="text-center">Course Catalog</h1>
 
-<div style="position: fixed">
+<div style="position: relative">
   <%= form_tag courses_path, method: :get, id: "searchBar" do %>
     <%= text_field_tag :search, params[:search], id: "searchInput", placeholder: "Search your Course..." %>
     <%= select_tag :term, options_for_select([['All Terms', '']] + term_options_for_select, params[:term]), prompt: 'Select Term' %>
