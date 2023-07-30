@@ -32,7 +32,6 @@
   <% end %>
 </div>
 
-
 <table id="coursesTable" class="table mt-3">
   <thead>
   <tr id="headerRow">
@@ -65,7 +64,12 @@
                 <%= link_to "Show this course", course, class: "btn btn-primary btn-block" %>
               </div>
               <div class="col">
-                <%= link_to "Apply", new_application_url, class: "btn btn-secondary btn-block" %>
+                <%= form_tag applications_path, method: :post do %>
+                  <%= hidden_field_tag :user_id, current_user.id %>
+                  <%= hidden_field_tag :course_id, course.id %>
+                  <%= hidden_field_tag :approved, false %>
+                  <%= button_tag "Apply", class: "btn btn-secondary btn-block", type: "submit" %>
+                <% end %>
               </div>
               <div class="col">
                 <% if current_user&.role == 'Admin' %>
