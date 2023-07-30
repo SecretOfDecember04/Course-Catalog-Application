@@ -73,10 +73,10 @@
               </div>
               <div class="col" style="margin-top: 5px;">
                 <% if current_user&.role == 'Student' %>
-                  <%= button_to 'Add to taken Courses', enrollments_path(course_id: course.id), method: :post, class: "btn btn-primary btn-block", style: "margin-top: 10px;" %>
+                  <%= button_to 'Add to taken Courses', enrollments_path(course_id: course.id), method: :post, class: "btn btn-primary btn-block" %>
                 <% end %>
               </div>
-              <div class="col" style="margin-top: 5px;">
+              <div class="col">
                 <% if current_user&.role == 'Admin' %>
                   <%= link_to "Delete", course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %>
                   <%= link_to "Edit", edit_course_path(course), class: "btn btn-info btn-block" %>
