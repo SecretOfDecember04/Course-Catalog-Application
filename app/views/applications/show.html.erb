@@ -3,6 +3,25 @@
 <%= render @application %>
 
 <div>
+  <h2>Course History</h2>
+  <table id="coursesTable" class="table mt-3">
+    <thead>
+    <tr id="headerRow">
+      <th class="text-center">Course</th>
+      <th class="text-center">Grade</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @application.user.enrollments.each do |enrollment| %>
+      <tr>
+        <td class="text-center"><%= enrollment.course_name %></td>
+        <td class="text-center"><%= enrollment.grade %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
   <h2>Availabilities</h2>
   <table id="coursesTable" class="table mt-3">
     <thead>
@@ -23,6 +42,7 @@
     <% end %>
     </tbody>
   </table>
+
   <%= link_to "Edit this application", edit_application_path(@application) %> |
   <%= link_to "Back to applications", applications_path %>
 
