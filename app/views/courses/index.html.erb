@@ -20,15 +20,17 @@
 </head>
 <body>
 
-<%= form_tag courses_path, method: :get, id: "searchBar" do %>
-  <%= text_field_tag :search, params[:search], id: "searchInput", placeholder: "Search your Course..." %>
-  <%= select_tag :term, options_for_select([['All Terms', '']] + term_options_for_select, params[:term]), prompt: 'Select Term' %>
-  <%= submit_tag "Search", name: nil, id: "search-button" %>
-<% end %>
-
 <p style="color: green"><%= notice %></p>
 
 <h1 class="text-center">Course Catalog</h1>
+
+<div style="position: relative">
+  <%= form_tag courses_path, method: :get, id: "searchBar" do %>
+    <%= text_field_tag :search, params[:search], id: "searchInput", placeholder: "Search your Course..." %>
+    <%= select_tag :term, options_for_select([['All Terms', '']] + term_options_for_select, params[:term]), prompt: 'Select Term' %>
+    <%= submit_tag "Search", name: nil, id: "search-button" %>
+  <% end %>
+</div>
 
 <table id="coursesTable" class="table mt-3">
   <thead>
@@ -54,7 +56,32 @@
       <td class="text-center"><%= course.name %></td>
       <td class="text-center"><%= course.description %></td>
       <td class="text-center"><%= course.level %></td>
-      <td class="text-center"><%= link_to "Show this course", course, class: "btn btn-primary" %></td>
+      <td class="text-center">
+        <div class="container">
+          <div class="row">
+            <div class="column">
+              <div class="col">
+                <%= link_to "Show this course", course, class: "btn btn-primary btn-block" %>
+              </div>
+              <div class="col">
+                <%= form_tag applications_path, method: :post do %>
+                  <%= hidden_field_tag :user_id, current_user.id %>
+                  <%= hidden_field_tag :course_id, course.id %>
+                  <%= hidden_field_tag :approved, false %>
+                  <%= button_tag "Apply", class: "btn btn-secondary btn-block", type: "submit" %>
+                <% end %>
+              </div>
+              <div class="col">
+                <% if current_user&.role == 'Admin' %>
+                  <%= link_to "Delete", course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %>
+                  <%= link_to "Edit", edit_course_path(course), class: "btn btn-info btn-block" %>
+
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
     </tr>
   <% end %>
   </tbody>
