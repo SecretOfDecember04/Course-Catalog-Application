@@ -54,7 +54,14 @@
       <td class="text-center"><%= course.name %></td>
       <td class="text-center"><%= course.description %></td>
       <td class="text-center"><%= course.level %></td>
-      <td class="text-center"><%= link_to "Show this course", course, class: "btn btn-primary" %></td>
+      <td class="text-center">
+        <%= link_to "Show this course", course, class: "btn btn-primary" %>
+        <% if current_user&.role == 'Admin' %>
+          <%= link_to "Delete", course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to "Edit", edit_course_path(course), class: "btn btn-info" %>
+
+        <% end %>
+      </td>
     </tr>
   <% end %>
   </tbody>
