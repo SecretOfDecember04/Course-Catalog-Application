@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_29_001313) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_30_181709) do
   create_table "applications", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "course_id"
+    t.boolean "approved"
   end
 
   create_table "availabilities", force: :cascade do |t|
@@ -42,9 +43,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_001313) do
 
   create_table "enrollments", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "course_id"
   end
 
   create_table "recommendations", force: :cascade do |t|
@@ -59,7 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_001313) do
     t.string "section_number"
     t.string "term"
     t.string "instructor"
-    t.string "days_times"
     t.string "instruction_mode"
     t.integer "graders"
     t.integer "graders_required"
@@ -67,6 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_001313) do
     t.datetime "updated_at", null: false
     t.integer "course_id"
     t.integer "student_id"
+    t.string "days"
+    t.string "start_time"
+    t.string "end_time"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,7 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_001313) do
   add_foreign_key "applications", "courses"
   add_foreign_key "applications", "users"
   add_foreign_key "availabilities", "users", column: "instructor_id"
-  add_foreign_key "enrollments", "sections"
+  add_foreign_key "enrollments", "courses"
   add_foreign_key "enrollments", "users"
   add_foreign_key "recommendations", "sections"
   add_foreign_key "recommendations", "users", column: "instructor_id"

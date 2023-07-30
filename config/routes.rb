@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   resources :availabilities
   resources :applications
   resources :recommendations
-  resources :course_takens
   resources :sections
-  resources :users
   resources :courses
+  resources :enrollments, only: [:create]
   authenticate :user do
     root to: 'courses#index', as: :authenticated_root
   end
