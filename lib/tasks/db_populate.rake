@@ -75,7 +75,7 @@ namespace :db do
             days:,
             start_time:,
             end_time:,
-            instructor:
+            # instructor:
           )
         end
       end
