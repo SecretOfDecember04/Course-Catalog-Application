@@ -1,8 +1,8 @@
 namespace :db do
   desc "Populate the database with initial course data from the OSU Classes API"
   task populate: :environment do
-    Course.delete_all
     Section.delete_all
+    Course.delete_all
 
     terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
     terms.each do |term_code, term_name|
@@ -14,7 +14,7 @@ namespace :db do
       }
 
       response = api_service.courses(search_params)
-    
+
       courses = response.dig('data', 'courses')
 
       courses&.each do |course|
@@ -22,6 +22,7 @@ namespace :db do
         course_number = course.dig('course', 'catalogNumber')
         subject = course.dig('course', 'subject')
         description = course.dig('course', 'description')
+        short_description = course.dig('course', 'shortDescription')
         level = course.dig('course', 'catalogLevel')
         term_courses = term_code
 
@@ -30,6 +31,7 @@ namespace :db do
           course_number:,
           subject:,
           description:,
+          short_description:,
           level:,
           term: term_courses
         )
@@ -75,7 +77,7 @@ namespace :db do
             days:,
             start_time:,
             end_time:,
-            # instructor:
+          # instructor:
           )
         end
       end
