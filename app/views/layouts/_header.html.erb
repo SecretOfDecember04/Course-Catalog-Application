@@ -9,8 +9,6 @@
       </div>
       <p>Welcome, <%= current_user.email %>!</p>
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <p>Please sign in or sign up to continue.</p>
     <% end %>
   </nav>
 </header>
