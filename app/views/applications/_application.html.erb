@@ -1,39 +1,50 @@
-<div id="<%= dom_id application %>">
-  <p>
-    <strong>Email:</strong>
-    <%= application.user.email %>
-  </p>
-  <p>
-    <strong>Role:</strong>
-    <%= application.user.role %>
-  </p>
-  <p>
-    <strong>First:</strong>
-    <%= application.user.first_name %>
-  </p>
-  <p>
-    <strong>Last:</strong>
-    <%= application.user.last_name %>
-  </p>
-  <hr class="dashed">
-  <p>
-    <strong>Course Number:</strong>
-    <%= application.course.course_number %>
-  </p>
-  <p>
-    <strong>Term:</strong>
-    <%= application.course.term %>
-  </p>
-  <p>
-    <strong>Subject:</strong>
-    <%= application.course.subject %>
-  </p>
-  <p>
-    <strong>Course:</strong>
-    <%= application.course.name %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= application.course.description %>
-  </p>
+<div id="<%= dom_id application %>" class="card bg-light mb-3">
+  <div class="card-header font-weight-bold">Application Information</div>
+  <div class="card-body">
+
+    <p class="mb-1">
+      <strong>Email:</strong>
+      <span class="ml-2"><%= application.user.email %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Role:</strong>
+      <span class="ml-2"><%= application.user.role %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>First:</strong>
+      <span class="ml-2"><%= application.user.first_name %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Last:</strong>
+      <span class="ml-2"><%= application.user.last_name %></span>
+    </p>
+    <hr class="dashed"/>
+    <p class="mb-1">
+      <strong>Course Number:</strong>
+      <span class="ml-2"><%= application.course.course_number %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Term:</strong>
+      <span class="ml-2"><%= application.course.term %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Subject:</strong>
+      <span class="ml-2"><%= application.course.subject %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Course:</strong>
+      <span class="ml-2"><%= application.course.name %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Description:</strong>
+      <span class="ml-2"><%= application.course.description %></span>
+    </p>
+  </div>
 </div>

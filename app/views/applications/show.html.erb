@@ -1,12 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+</div>
 
+<div class="container">
 <%= render @application %>
 
 <div>
   <h2>Course History</h2>
-  <table id="coursesTable" class="table mt-3">
-    <thead>
-    <tr id="headerRow">
+  <table id="coursesTable" class="table table-striped mt-3">
+    <thead class="thead-light">
+    <tr>
       <th class="text-center">Course</th>
       <th class="text-center">Grade</th>
     </tr>
@@ -23,9 +26,9 @@
   </table>
 
   <h2>Availabilities</h2>
-  <table id="coursesTable" class="table mt-3">
-    <thead>
-    <tr id="headerRow">
+  <table id="coursesTable" class="table table-striped mt-3">
+    <thead class="thead-light">
+    <tr>
       <th class="text-center">Day</th>
       <th class="text-center">Start Time</th>
       <th class="text-center">End Time</th>
@@ -43,10 +46,10 @@
     </tbody>
   </table>
 
-  <%= link_to "Edit this application", edit_application_path(@application) %> |
-  <%= link_to "Back to applications", applications_path %>
+  <%= link_to "Edit this application", edit_application_path(@application), class: "btn btn-primary" %>
+  <%= link_to "Back to applications", applications_path, class: "btn btn-secondary" %>
 
-  <%= button_to "Destroy this application", @application, method: :delete, class: "btn btn-danger"%>
+  <%= button_to "Destroy this application", @application, method: :delete, class: "btn btn-danger" %>
 
   <% if current_user.role == "Admin" || current_user.role == "Instructor" %>
     <%= form_tag applications_path, method: :post do %>
@@ -56,4 +59,5 @@
       <%= button_tag "Approve", class: "btn btn-success", type: "submit" %>
     <% end %>
   <% end %>
+</div>
 </div>
