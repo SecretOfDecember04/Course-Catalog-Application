@@ -51,6 +51,6 @@ class EnrollmentsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def enrollment_params
-    params.require(:enrollment).permit(:user_id, :course_name, :grade)
+    params.permit(:user_id, :course_name, :grade)
   end
 end

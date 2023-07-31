@@ -1,29 +1,21 @@
 <h1>My Course History</h1>
-
-<table>
+<table id="enrollmentsTable" class="table mt-3">
   <thead>
-  <tr>
-    <th>User</th>
-    <th>Course Name</th>
-    <th>Grade</th>
-    <th colspan="3"></th>
+  <tr id="headerRow">
+    <th class="text-center">Course</th>
+    <th class="text-center">Grade</th>
+    <th class="text-center">Actions</th>
   </tr>
   </thead>
-
   <tbody>
-  <% @enrollments.each do |enrollment| %>
+  <% @enrollments.where(user_id: current_user.id).each do |enrollment| %>
     <tr>
-      <td><%= enrollment.user_id %></td>
-      <td><%= enrollment.course_name %></td>
-      <td><%= enrollment.grade %></td>
-      <td><%= link_to 'Show', enrollment %></td>
-      <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
-      <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td class="text-center"><%= enrollment.course_name %></td>
+      <td class="text-center"><%= enrollment.grade %></td>
+      <td class="text-center"><%= link_to 'Show', enrollment %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-
-<br>
-
+<br/>
 <%= link_to 'New Enrollment', new_enrollment_path %>
