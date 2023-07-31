@@ -39,8 +39,8 @@
     <% @application.user.availabilities.each do |availability| %>
       <tr>
         <td class="text-center"><%= availability.day %></td>
-        <td class="text-center"><%= availability.start_time %></td>
-        <td class="text-center"><%= availability.end_time %></td>
+        <td class="text-center"><%= availability.start_time.strftime("%I:%M %p") %></td>
+        <td class="text-center"><%= availability.end_time.strftime("%I:%M %p") %></td>
       </tr>
     <% end %>
     </tbody>
