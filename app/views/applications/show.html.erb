@@ -46,5 +46,14 @@
   <%= link_to "Edit this application", edit_application_path(@application) %> |
   <%= link_to "Back to applications", applications_path %>
 
-  <%= button_to "Destroy this application", @application, method: :delete %>
+  <%= button_to "Destroy this application", @application, method: :delete, class: "btn btn-danger"%>
+
+  <% if current_user.role == "Admin" || current_user.role == "Instructor" %>
+    <%= form_tag applications_path, method: :post do %>
+      <%= hidden_field_tag :user_id, @application.user_id %>
+      <%= hidden_field_tag :course_id, @application.course_id %>
+      <%= hidden_field_tag :approved, true %>
+      <%= button_tag "Approve", class: "btn btn-success", type: "submit" %>
+    <% end %>
+  <% end %>
 </div>
