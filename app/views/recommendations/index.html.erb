@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Recommendations</h1>
-
-<div id="recommendations">
-  <% @recommendations.each do |recommendation| %>
-    <%= render recommendation %>
-    <p>
-      <%= link_to "Show this recommendation", recommendation %>
-    </p>
+<div class="container my-5">
+  <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
   <% end %>
-</div>
 
-<%= link_to "New recommendation", new_recommendation_path %>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Recommendations</h1>
+    <%= link_to "New recommendation", new_recommendation_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div id="recommendations">
+    <% @recommendations.each do |recommendation| %>
+      <div class="card my-4">
+        <div class="card-body">
+          <%= render recommendation %>
+        </div>
+        <div class="card-footer">
+          <%= link_to "Show this recommendation", recommendation, class: 'btn btn-info' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

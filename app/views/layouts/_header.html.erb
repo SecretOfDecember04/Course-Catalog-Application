@@ -23,6 +23,9 @@
           </li>
           <% if current_user.role == "Admin" %>
             <li class="nav-item">
+              <%= link_to 'Recommendations', recommendations_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
               <%= link_to 'Admin Portal', admin_index_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
