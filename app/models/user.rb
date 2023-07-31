@@ -5,5 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :enrollments, dependent: :destroy
   has_many :applications, dependent: :destroy
-  validates(:email, :first_name, :last_name, :role, presence: true)
+  has_many :availabilities, dependent: :destroy
+  validates(:email, format: { with: /\b[A-Z0-9._%a-z\-]+@osu\.edu\z/, message: "must be a @osu.edu account" })
+  validates(:first_name, :last_name, :role, presence: true)
+
+  def full_name
+    "#{first_name}  #{last_name} (#{email})"
+  end
 end
+

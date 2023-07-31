@@ -1,10 +1,63 @@
-<p style="color: green"><%= notice %></p>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+</div>
 
+<div class="container">
 <%= render @application %>
 
 <div>
-  <%= link_to "Edit this application", edit_application_path(@application) %> |
-  <%= link_to "Back to applications", applications_path %>
+  <h2>Course History</h2>
+  <table id="coursesTable" class="table table-striped mt-3">
+    <thead class="thead-light">
+    <tr>
+      <th class="text-center">Course</th>
+      <th class="text-center">Grade</th>
+    </tr>
+    </thead>
 
-  <%= button_to "Destroy this application", @application, method: :delete %>
+    <tbody>
+    <% @application.user.enrollments.each do |enrollment| %>
+      <tr>
+        <td class="text-center"><%= enrollment.course_name %></td>
+        <td class="text-center"><%= enrollment.grade %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h2>Availabilities</h2>
+  <table id="coursesTable" class="table table-striped mt-3">
+    <thead class="thead-light">
+    <tr>
+      <th class="text-center">Day</th>
+      <th class="text-center">Start Time</th>
+      <th class="text-center">End Time</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @application.user.availabilities.each do |availability| %>
+      <tr>
+        <td class="text-center"><%= availability.day %></td>
+        <td class="text-center"><%= availability.start_time %></td>
+        <td class="text-center"><%= availability.end_time %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "Edit this application", edit_application_path(@application), class: "btn btn-primary" %>
+  <%= link_to "Back to applications", applications_path, class: "btn btn-secondary" %>
+
+  <%= button_to "Destroy this application", @application, method: :delete, class: "btn btn-danger" %>
+
+  <% if current_user.role == "Admin" || current_user.role == "Instructor" %>
+    <%= form_tag applications_path, method: :post do %>
+      <%= hidden_field_tag :user_id, @application.user_id %>
+      <%= hidden_field_tag :course_id, @application.course_id %>
+      <%= hidden_field_tag :approved, true %>
+      <%= button_tag "Approve", class: "btn btn-success", type: "submit" %>
+    <% end %>
+  <% end %>
+</div>
 </div>

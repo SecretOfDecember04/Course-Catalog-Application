@@ -1,8 +1,7 @@
-<%= form_with(model: availability) do |form| %>
+<%= form_with(model: availability, local: true, html: { class: "needs-validation", novalidate: '' }) do |form| %>
   <% if availability.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(availability.errors.count, "error") %> prohibited this availability from being saved:</h2>
-
+    <div class="alert alert-danger">
+      <h4><%= pluralize(availability.errors.count, "error") %> prohibited this availability from being saved:</h4>
       <ul>
         <% availability.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,32 +10,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :student, style: "display: block" %>
-    <%= form.text_field :student %>
+  <div class="form-group">
+    <%= form.label :user_id, class: 'control-label' %>
+    <%= form.collection_select :user_id, User.order(:first_name), :id, :full_name, {}, { class: 'form-control' } %>
   </div>
 
-  <div>
-    <%= form.label :term, style: "display: block" %>
-    <%= form.text_field :term %>
+  <div class="form-group">
+    <%= form.label :term, class: 'form-control-label' %>
+    <%= form.text_field :term, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :day, style: "display: block" %>
-    <%= form.text_field :day %>
+  <div class="form-group">
+    <%= form.label :day, class: 'form-control-label' %>
+    <%= form.date_field :day, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :start_time, style: "display: block" %>
-    <%= form.text_field :start_time %>
+  <div class="form-group">
+    <%= form.label :start_time, class: 'form-control-label' %>
+    <%= form.time_field :start_time, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :end_time, style: "display: block" %>
-    <%= form.text_field :end_time %>
+  <div class="form-group">
+    <%= form.label :end_time, class: 'form-control-label' %>
+    <%= form.time_field :end_time, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-primary mt-2' %>
   </div>
 <% end %>

@@ -73,6 +73,12 @@ class CoursesController < ApplicationController
     end
   end
 
+  # Reload courses.
+  def reload
+    system("rake db:populate")
+    redirect_to(courses_path, notice: 'Courses reloaded.')
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -82,6 +88,6 @@ class CoursesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def course_params
-    params.require(:course).permit(:course_number, :subject, :name, :description, :level)
+    params.require(:course).permit(:course_number, :subject, :name, :description, :short_description, :level)
   end
 end

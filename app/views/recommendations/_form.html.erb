@@ -1,32 +1,32 @@
-<%= form_with(model: recommendation) do |form| %>
+<%= form_with(model: recommendation, local: true, class: 'needs-validation', novalidate: '') do |form| %>
   <% if recommendation.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>
 
       <ul>
-        <% recommendation.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% recommendation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :instructor, style: "display: block" %>
-    <%= form.text_field :instructor %>
+  <div class="form-group">
+    <%= form.label :instructor %>
+    <%= form.text_field :instructor, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :student, style: "display: block" %>
-    <%= form.text_field :student %>
+  <div class="form-group">
+    <%= form.label :student %>
+    <%= form.text_field :user_id, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :section_number, style: "display: block" %>
-    <%= form.text_field :section_number %>
+  <div class="form-group">
+    <%= form.label :section_number %>
+    <%= form.text_field :section_number, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

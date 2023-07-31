@@ -1,14 +1,23 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Availabilities</h1>
-
-<div id="availabilities">
-  <% @availabilities.each do |availability| %>
-    <%= render availability %>
-    <p>
-      <%= link_to "Show this availability", availability %>
-    </p>
+<div class="container my-5">
+  <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
   <% end %>
-</div>
 
-<%= link_to "New availability", new_availability_path %>
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Availabilities</h2>
+    </div>
+    <div class="card-body">
+      <% @availabilities.each do |availability| %>
+        <%= render availability %>
+        <p>
+          <%= link_to "Show this availability", availability, class: 'btn btn-info mb-3' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to "New availability", new_availability_path, class: 'btn btn-success mt-3' %>
+</div>

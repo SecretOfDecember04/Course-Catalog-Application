@@ -1,12 +1,50 @@
-<div id="<%= dom_id application %>">
-  <p>
-    <strong>User ID:</strong>
-    <%= application.user %>
-  </p>
+<div id="<%= dom_id application %>" class="card bg-light mb-3">
+  <div class="card-header font-weight-bold">Application Information</div>
+  <div class="card-body">
 
-  <p>
-    <strong>Course ID:</strong>
-    <%= application.course %>
-  </p>
-
+    <p class="mb-1">
+      <strong>Email:</strong>
+      <span class="ml-2"><%= application.user.email %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Role:</strong>
+      <span class="ml-2"><%= application.user.role %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>First:</strong>
+      <span class="ml-2"><%= application.user.first_name %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Last:</strong>
+      <span class="ml-2"><%= application.user.last_name %></span>
+    </p>
+    <hr class="dashed"/>
+    <p class="mb-1">
+      <strong>Course Number:</strong>
+      <span class="ml-2"><%= application.course.course_number %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Term:</strong>
+      <span class="ml-2"><%= application.course.term %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Subject:</strong>
+      <span class="ml-2"><%= application.course.subject %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Course:</strong>
+      <span class="ml-2"><%= application.course.name %></span>
+    </p>
+    <hr/>
+    <p class="mb-1">
+      <strong>Description:</strong>
+      <span class="ml-2"><%= application.course.description %></span>
+    </p>
+  </div>
 </div>
