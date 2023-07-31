@@ -4,6 +4,7 @@ class AvailabilitiesController < ApplicationController
   # GET /availabilities or /availabilities.json
   def index
     @availabilities = Availability.all
+    @terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
   end
 
   # GET /availabilities/1 or /availabilities/1.json
@@ -12,14 +13,21 @@ class AvailabilitiesController < ApplicationController
   # GET /availabilities/new
   def new
     @availability = Availability.new
+    @terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
+    @availability.user_id = current_user.id
   end
 
   # GET /availabilities/1/edit
-  def edit; end
+  def edit
+    @terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
+    @availability.user_id = current_user.id
+  end
 
   # POST /availabilities or /availabilities.json
   def create
+    @terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
     @availability = Availability.new(availability_params)
+    @availability.user_id = current_user.id
 
     respond_to do |format|
       if @availability.save
@@ -64,6 +72,6 @@ class AvailabilitiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def availability_params
-    params.require(:availability).permit(:student, :term, :day, :start_time, :end_time)
+    params.require(:availability).permit(:student, :day, :start_time, :end_time, :user_id)
   end
 end
