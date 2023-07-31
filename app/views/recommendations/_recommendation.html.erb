@@ -1,17 +1,18 @@
-<div id="<%= dom_id recommendation %>">
-  <p>
-    <strong>Instructor:</strong>
-    <%= recommendation.instructor %>
-  </p>
+<div id="<%= dom_id recommendation %>" class="card mb-4">
+  <div class="card-body">
+    <p class="mb-1">
+      <strong class="text-primary">Instructor:</strong>
+      <%= recommendation.instructor %>
+    </p>
 
-  <p>
-    <strong>Student:</strong>
-    <%= recommendation.student %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">Student:</strong>
+      <%= recommendation.student %>
+    </p>
 
-  <p>
-    <strong>Section number:</strong>
-    <%= recommendation.section_number %>
-  </p>
-
+    <p>
+      <strong class="text-primary">Section number:</strong>
+      <%= recommendation.section_number %>
+    </p>
+  </div>
 </div>

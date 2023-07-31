@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="container my-5">
+  <div class="card">
+    <% if notice %>
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
 
-<%= render @recommendation %>
+    <div class="card-body">
+      <%= render @recommendation %>
+    </div>
 
-<div>
-  <%= link_to "Edit this recommendation", edit_recommendation_path(@recommendation) %> |
-  <%= link_to "Back to recommendations", recommendations_path %>
-
-  <%= button_to "Destroy this recommendation", @recommendation, method: :delete %>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+      <%= link_to "Edit this recommendation", edit_recommendation_path(@recommendation), class: 'btn btn-warning' %>
+      <%= link_to "Back to recommendations", recommendations_path, class: 'btn btn-secondary' %>
+      <%= button_to "Destroy this recommendation", @recommendation, class: 'btn btn-danger', method: :delete %>
+    </div>
+  </div>
 </div>
