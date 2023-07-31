@@ -23,11 +23,14 @@
 <h1 class="text-center">Course Catalog</h1>
 
 <div>
-  <%= form_tag courses_path, method: :get, id: "searchBar" do %>
-    <%= text_field_tag :search, params[:search], id: "searchInput", placeholder: "Search your Course..." %>
-    <%= select_tag :term, options_for_select([['All Terms', '']] + term_options_for_select, params[:term]), prompt: 'Select Term' %>
-    <%= submit_tag "Search", name: nil, id: "search-button" %>
+  <%= form_with url: courses_path, method: :get, local: true, class: "form-inline my-2 my-lg-0", id: "searchBar" do %>
+    <%= text_field_tag :search, params[:search], id: "searchInput", placeholder: "Search your Course...", class: "form-control mr-sm-2" %>
+    <%= select_tag :term, options_for_select([['All Terms', '']] + term_options_for_select, params[:term]), prompt: 'Select Term', class: "form-control mr-sm-2" %>
+    <%= button_tag type: 'submit', name: nil, id: "search-button", class: "btn btn-outline-success my-2 my-sm-0" do %>
+      Search
+    <% end %>
   <% end %>
+
 
   <table id="coursesTable" class="table mt-3">
     <thead>
