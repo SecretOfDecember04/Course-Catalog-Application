@@ -20,6 +20,8 @@ class ApplicationsController < ApplicationController
   # POST /applications or /applications.json
   def create
     @application = Application.new(application_params)
+    @application.user = current_user
+    Rails.logger.debug("application_params: #{application_params.inspect}")
     respond_to do |format|
       if @application.save
         format.html { redirect_to(application_url(@application), notice: "Application was successfully created.") }
@@ -63,6 +65,6 @@ class ApplicationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def application_params
-    params.permit(:user_id, :course_id, :approved)
+    params.require(:application).permit(:user_id, :course_id, :approved)
   end
 end
