@@ -53,9 +53,19 @@
         <td class="text-center"><%= user.is_approved %></td>
         <td class="text-center">
           <% if user.is_approved && user.role == 'Admin'%>
-            <%= link_to "Remove Admin", root_path, class: "btn btn-outline-danger" %>
+            <%= form_tag edit_user_registration_path, method: :patch do %>
+              <%= hidden_field_tag :user_id, user.id %>
+              <%= hidden_field_tag :approved, false %>
+              <%= hidden_field_tag :role, "student" %>
+              <%= button_tag "Remove Admin", class: "btn btn-outline-danger", type: "submit" %>
+            <% end %>
           <% else %>
-            <%= link_to "Make Admin", root_path, class: "btn btn-outline-success" %>
+            <%= form_tag edit_user_registration_path, method: :patch do %>
+              <%= hidden_field_tag :user_id, user.id %>
+              <%= hidden_field_tag :approved, true %>
+              <%= hidden_field_tag :role, "admin" %>
+              <%= button_tag "Make Admin", class: "btn btn-outline-success", type: "submit" %>
+            <% end %>
           <% end %>
         </td>
       </tr>
