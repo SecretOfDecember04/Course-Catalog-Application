@@ -52,7 +52,7 @@
         <td class="text-center"><%= user.role %></td>
         <td class="text-center"><%= user.is_approved %></td>
         <td class="text-center">
-          <% if user.role == 'Admin' && current_user.is_approved == true %>
+          <% if user.is_approved && user.role == 'Admin'%>
             <%= link_to "Remove Admin", root_path, class: "btn btn-outline-danger" %>
           <% else %>
             <%= link_to "Make Admin", root_path, class: "btn btn-outline-success" %>
