@@ -76,6 +76,9 @@ namespace :db do
           end
           instructor = instructor.chomp(', ')
 
+          start_time = start_time.nil? ? nil : Time.parse(start_time)
+          end_time = end_time.nil? ? nil : Time.parse(end_time)
+
           section_entry = course_entry.sections.find_or_initialize_by(section_number: section_number)
           section_entry.update(
             section_number:,
