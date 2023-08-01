@@ -1,6 +1,16 @@
 namespace :db do
   desc "Populate the database with initial course data from the OSU Classes API"
   task populate: :environment do
+    unless User.exists?(role: "Admin")
+      User.create(
+        email: "admin@osu.edu",
+        password: "password",
+        first_name: "Admin",
+        last_name: "Admin",
+        role: "Admin",
+        is_approved: true
+      )
+    end
     terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
     terms.each do |term_code, term_name|
       api_service = ApiService.new
