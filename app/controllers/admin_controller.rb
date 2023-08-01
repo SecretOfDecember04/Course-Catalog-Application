@@ -11,5 +11,6 @@ class AdminController < ApplicationController
   def index
     @applications = Application.all
     @sections = Section.all
+    @users = User.all
   end
 end
