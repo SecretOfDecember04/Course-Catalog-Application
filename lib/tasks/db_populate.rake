@@ -66,15 +66,16 @@ namespace :db do
               start_time = meeting['startTime']
               end_time = meeting['endTime']
             end
-          end
-          days = days.chomp(', ')
-
-          # Populate instructor
-          instructors = section['instructors']
-          instructors&.each do |single_instructor|
-            instructor += "#{single_instructor['email']}, "
+            # Populate instructor
+            instructors = meeting['instructors']
+            instructors&.each do |single_instructor|
+              instructor += "#{single_instructor['email']}, "
+            end
           end
           instructor = instructor.chomp(', ')
+          days = days.chomp(', ')
+
+
 
           start_time = start_time.nil? ? nil : Time.parse(start_time)
           end_time = end_time.nil? ? nil : Time.parse(end_time)
@@ -89,7 +90,7 @@ namespace :db do
             days:,
             start_time:,
             end_time:,
-            # instructor:
+            instructor:
           )
         end
       end
