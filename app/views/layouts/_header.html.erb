@@ -21,7 +21,7 @@
           <li class="nav-item">
             <%= link_to 'Availability', availabilities_path, class: 'nav-link' %>
           </li>
-          <% if current_user.role == "Admin" %>
+          <% if current_user.role == "Admin" && current_user.is_approved == true%>
             <li class="nav-item">
               <%= link_to 'Recommendations', recommendations_path, class: 'nav-link' %>
             </li>
