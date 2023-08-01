@@ -1,62 +1,61 @@
-<%= form_with(model: section) do |form| %>
-  <% if section.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(section.errors.count, "error") %> prohibited this section from being saved:</h2>
+<%= form_with(model: section, local: true, html: { class: 'needs-validation' }, novalidate: '') do |form| %>
 
+  <% if section.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(section.errors.count, "error") %> prohibited this section from being saved:</h2>
       <ul>
-        <% section.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% section.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :section_number, style: "display: block" %>
-    <%= form.text_field :section_number %>
+  <div class="form-group">
+    <%= form.label :instructor %>
+    <%= form.text_field :instructor, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :course, style: "display: block" %>
-    <%= form.text_field :course %>
+  <div class="form-group">
+    <%= form.label :days %>
+
+    <div class="d-flex justify-content-between flex-wrap">
+      <% %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day| %>
+        <div class="form-check">
+          <%= form.check_box :days, { multiple: true, class: 'form-check-input' }, day, nil %>
+          <%= label_tag "days[]", day, class: 'form-check-label' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :term, style: "display: block" %>
-    <%= form.text_field :term %>
+  <div class="form-group">
+    <%= form.label :start_time %>
+    <%= form.time_field :start_time, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :campus, style: "display: block" %>
-    <%= form.text_field :campus %>
+  <div class="form-group">
+    <%= form.label :end_time %>
+    <%= form.time_field :end_time, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :instructor, style: "display: block" %>
-    <%= form.text_field :instructor %>
+  <div class="form-group">
+    <%= form.label :instruction_mode %>
+    <%= form.select :instruction_mode, ['Distance Learning', 'Hybrid Delivery', 'In Person'], {}, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :days_times, style: "display: block" %>
-    <%= form.text_field :days_times %>
+  <div class="form-group">
+    <%= form.label :graders %>
+    <%= form.number_field :graders, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :instruction_mode, style: "display: block" %>
-    <%= form.text_field :instruction_mode %>
+  <div class="form-group">
+    <%= form.label :graders_required %>
+    <%= form.number_field :graders_required, class: 'form-control', value: 1 %>
   </div>
 
-  <div>
-    <%= form.label :graders, style: "display: block" %>
-    <%= form.number_field :graders %>
-  </div>
 
-  <div>
-    <%= form.label :graders_required, style: "display: block" %>
-    <%= form.number_field :graders_required %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

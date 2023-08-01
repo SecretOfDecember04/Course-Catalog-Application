@@ -10,10 +10,17 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :user_id, class: 'control-label' %>
-    <%= form.collection_select :user_id, User.order(:first_name), :id, :full_name, {}, { class: 'form-control' } %>
-  </div>
+  <% if current_user.role == "Admin" %>
+    <div class="form-group">
+      <%= form.label :user_id, class: 'control-label' %>
+      <%= form.collection_select :user_id, User.order(:first_name), :id, :full_name, {}, { class: 'form-control' } %>
+    </div>
+  <% elsif current_user.role == "Student" %>
+    <div class="form-group">
+      <%= form.label :user, class: 'control-label' %>
+      <label for="staticUser"></label><input type="text" class="form-control" readonly id="staticUser" value="<%= "#{current_user.full_name}" %>">
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.label :course_id, class: 'control-label' %>

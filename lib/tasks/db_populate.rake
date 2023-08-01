@@ -1,6 +1,16 @@
 namespace :db do
   desc "Populate the database with initial course data from the OSU Classes API"
   task populate: :environment do
+    unless User.exists?(role: "Admin")
+      User.create(
+        email: "admin@osu.edu",
+        password: "password",
+        first_name: "Admin",
+        last_name: "Admin",
+        role: "Admin",
+        is_approved: true
+      )
+    end
     terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
     terms.each do |term_code, term_name|
       api_service = ApiService.new
@@ -56,15 +66,19 @@ namespace :db do
               start_time = meeting['startTime']
               end_time = meeting['endTime']
             end
-          end
-          days = days.chomp(', ')
-
-          # Populate instructor
-          instructors = section['instructors']
-          instructors&.each do |single_instructor|
-            instructor += "#{single_instructor['email']}, "
+            # Populate instructor
+            instructors = meeting['instructors']
+            instructors&.each do |single_instructor|
+              instructor += "#{single_instructor['email']}, "
+            end
           end
           instructor = instructor.chomp(', ')
+          days = days.chomp(', ')
+
+
+
+          start_time = start_time.nil? ? nil : Time.parse(start_time)
+          end_time = end_time.nil? ? nil : Time.parse(end_time)
 
           section_entry = course_entry.sections.find_or_initialize_by(section_number: section_number)
           section_entry.update(
@@ -76,7 +90,7 @@ namespace :db do
             days:,
             start_time:,
             end_time:,
-            # instructor:
+            instructor:
           )
         end
       end

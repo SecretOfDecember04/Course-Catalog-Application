@@ -1,37 +1,49 @@
-<div id="<%= dom_id section %>">
-  <p>
-    <strong>Section number:</strong>
-    <%= section.section_number %>
-  </p>
+<div id="<%= dom_id section %>" class="card mb-4">
+  <div class="card-body">
+    <p class="mb-1">
+      <strong class="text-primary">Section number:</strong>
+      <%= section.section_number %>
+    </p>
 
-  <p>
-    <strong>Term:</strong>
-    <%= section.term %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">Term:</strong>
+      <%= section.term %>
+    </p>
 
-  <p>
-    <strong>Instructor:</strong>
-    <%= section.instructor %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">Instructor:</strong>
+      <%= section.instructor %>
+    </p>
 
-  <p>
-    <strong>Days times:</strong>
-    <%= section.days_times %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">Days:</strong>
+      <%= section.days %>
+    </p>
 
-  <p>
-    <strong>Instruction mode:</strong>
-    <%= section.instruction_mode %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">Start Time:</strong>
+      <%= section.start_time %>
+    </p>
 
-  <p>
-    <strong>Graders:</strong>
-    <%= section.graders %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">End Time:</strong>
+      <%= section.end_time %>
+    </p>
 
-  <p>
-    <strong>Graders required:</strong>
-    <%= section.graders_required %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">Instruction mode:</strong>
+      <%= section.instruction_mode %>
+    </p>
 
+    <p class="mb-1">
+      <strong class="text-primary">Graders:</strong>
+      <%= section.graders %>
+    </p>
+
+    <p>
+      <strong class="text-primary">Graders required:</strong>
+      <%= section.graders_required %>
+    </p>
+
+  </div>
 </div>
