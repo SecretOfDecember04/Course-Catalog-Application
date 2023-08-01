@@ -33,7 +33,7 @@ namespace :db do
         level = course.dig('course', 'catalogLevel')
         term_courses = term_code
 
-        course_entry = Course.find_or_initialize_by(course_number: course_number)
+        course_entry = Course.find_or_initialize_by(course_number: course_number, term: term_name)
         course_entry.update(
           name:,
           course_number:,
@@ -80,7 +80,7 @@ namespace :db do
           start_time = start_time.nil? ? nil : Time.parse(start_time)
           end_time = end_time.nil? ? nil : Time.parse(end_time)
 
-          section_entry = course_entry.sections.find_or_initialize_by(section_number: section_number)
+          section_entry = course_entry.sections.find_or_initialize_by(section_number: section_number, term: term_name)
           section_entry.update(
             section_number:,
             term: term_courses,

@@ -22,12 +22,12 @@
 
     <p class="mb-1">
       <strong class="text-primary">Start Time:</strong>
-      <%= section.start_time %>
+      <%= section.start_time.strftime("%I:%M %p") if section.start_time %>
     </p>
 
     <p class="mb-1">
       <strong class="text-primary">End Time:</strong>
-      <%= section.end_time %>
+      <%= section.end_time.strftime("%I:%M %p") if section.end_time %>
     </p>
 
     <p class="mb-1">
