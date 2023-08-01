@@ -51,17 +51,23 @@
         <td class="text-center"><%= user.last_name %></td>
         <td class="text-center"><%= user.role %></td>
         <td class="text-center"><%= user.is_approved %></td>
-<!--        <td class="text-center">-->
-<!--          <div class="container">-->
-<!--            <div class="row">-->
-<!--              <div class="column">-->
-<!--                <div class="col">-->
-                  <%#= link_to "Show this Application", application, class: "btn btn-primary btn-block" %>
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </td>-->
+        <td class="text-center">
+          <% if user.is_approved && user.role == 'Admin'%>
+            <%= form_tag edit_user_registration_path, method: :patch do %>
+              <%= hidden_field_tag :user_id, user.id %>
+              <%= hidden_field_tag :approved, false %>
+              <%= hidden_field_tag :role, "student" %>
+              <%= button_tag "Remove Admin", class: "btn btn-outline-danger", type: "submit" %>
+            <% end %>
+          <% else %>
+            <%= form_tag edit_user_registration_path, method: :patch do %>
+              <%= hidden_field_tag :user_id, user.id %>
+              <%= hidden_field_tag :approved, true %>
+              <%= hidden_field_tag :role, "admin" %>
+              <%= button_tag "Make Admin", class: "btn btn-outline-success", type: "submit" %>
+            <% end %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </tbody>

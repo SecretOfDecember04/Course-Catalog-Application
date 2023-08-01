@@ -77,7 +77,8 @@
                   <% end %>
                 </div>
                 <div class="col" style="margin-top: 5px;">
-                  <% if current_user&.role == 'Admin' %>
+
+                  <% if current_user&.role == 'Admin' && current_user.is_approved == true %>
                     <%= link_to "Delete", course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %>
                     <%= link_to "Edit", edit_course_path(course), class: "btn btn-info btn-block" %>
                   <% end %>

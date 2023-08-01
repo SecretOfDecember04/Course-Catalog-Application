@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <% if user_signed_in? %>
-      <a class="navbar-brand" href="<%= users_path %>">Welcome, <%= current_user.email %>!</a>
+      <a class="navbar-brand hover-underline" href="<%= users_path %>">Welcome, <%= current_user.email %>!</a>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
           <li class="nav-item">
             <%= link_to 'Availability', availabilities_path, class: 'nav-link' %>
           </li>
-          <% if current_user.role == "Admin" %>
+          <% if current_user.role == "Admin" && current_user.is_approved == true %>
             <li class="nav-item">
               <%= link_to 'Recommendations', recommendations_path, class: 'nav-link' %>
             </li>
@@ -32,6 +32,9 @@
               <%= link_to 'Reload Courses', 'courses/reload', method: :get, class: "nav-link" %>
             </li>
           <% end %>
+          <li class="nav-item">
+            <%= link_to "Profile", edit_user_registration_path, :method => :delete, class: 'nav-link' %>
+          </li>
           <li class="nav-item">
             <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'nav-link' %>
           </li>

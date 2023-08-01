@@ -24,3 +24,7 @@ body {
     margin-top: auto;
 }
 
+.hover-underline:hover {
+    text-decoration: underline;
+}
+
