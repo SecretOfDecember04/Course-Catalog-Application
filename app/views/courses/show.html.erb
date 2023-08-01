@@ -30,6 +30,19 @@
         <td><%= section.end_time %></td>
         <td><%= section.days %></td>
         <td><%= section.instruction_mode %></td>
+        <td class="text-center">
+          <div class="container">
+            <div class="row">
+              <div class="column">
+                <div class="col">
+                  <% if current_user.role == "Admin" %>
+                    <%= link_to "Edit this Section", edit_section_path(section), class: "btn btn-primary btn-block" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
       </tr>
     <% end %>
     </tbody>
