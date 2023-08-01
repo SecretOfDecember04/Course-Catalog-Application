@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <% if user_signed_in? %>
-      <a class="navbar-brand" href="#">Welcome, <%= current_user.email %>!</a>
+      <a class="navbar-brand" href="<%= users_path %>">Welcome, <%= current_user.email %>!</a>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
