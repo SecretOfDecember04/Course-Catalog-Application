@@ -12,17 +12,16 @@
     bundle install
     ```
 
-3. Setup database by creating and migrating the database using
+3. Migrate the database and using
 
     ```bash
-    rails db:create
     rails db:migrate
     ```
 
-4. (Optional) If you want to populate or refresh the database, run
+4. Populate the database with initial data from OSU API (https://content.osu.edu/v2/classes/searchLinks), run
     
     ```bash
-    rails db:populate
+    rake db:populate
     ```
 
 5. Start the rails server by running

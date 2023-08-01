@@ -52,7 +52,7 @@
         <td class="text-center"><%= user.role %></td>
         <td class="text-center"><%= user.is_approved %></td>
         <td class="text-center">
-          <% if user.is_approved && user.role == 'Admin'%>
+          <% if user.is_approved && user.role == 'Admin' %>
             <%= form_tag edit_user_registration_path, method: :patch do %>
               <%= hidden_field_tag :user_id, user.id %>
               <%= hidden_field_tag :approved, false %>
