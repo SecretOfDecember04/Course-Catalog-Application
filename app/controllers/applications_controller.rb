@@ -20,8 +20,6 @@ class ApplicationsController < ApplicationController
   # POST /applications or /applications.json
   def create
     @application = Application.new(application_params)
-    @application.user = current_user
-    Rails.logger.debug("application_params: #{application_params.inspect}")
     respond_to do |format|
       if @application.save
         format.html { redirect_to(application_url(@application), notice: "Application was successfully created.") }
