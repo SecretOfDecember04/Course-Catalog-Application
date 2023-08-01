@@ -51,17 +51,13 @@
         <td class="text-center"><%= user.last_name %></td>
         <td class="text-center"><%= user.role %></td>
         <td class="text-center"><%= user.is_approved %></td>
-<!--        <td class="text-center">-->
-<!--          <div class="container">-->
-<!--            <div class="row">-->
-<!--              <div class="column">-->
-<!--                <div class="col">-->
-                  <%#= link_to "Show this Application", application, class: "btn btn-primary btn-block" %>
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </td>-->
+        <td class="text-center">
+          <% if user.role == 'Admin' && current_user.is_approved == true %>
+            <%= link_to "Remove Admin", root_path, class: "btn btn-outline-danger" %>
+          <% else %>
+            <%= link_to "Make Admin", root_path, class: "btn btn-outline-success" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </tbody>
