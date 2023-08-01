@@ -68,6 +68,6 @@ class RecommendationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recommendation_params
-    params.require(:recommendation).permit(:instructor, :student, :section_number)
+    params.require(:recommendation).permit(:instructor, :student, :section_number,:comments)
   end
 end
