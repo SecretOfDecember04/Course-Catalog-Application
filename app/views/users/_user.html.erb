@@ -1,27 +1,28 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
+<div id="<%= dom_id user %>" class="card mb-4">
+  <div class="card-body">
+    <p class="mb-1">
+      <strong class="text-primary">Email:</strong>
+      <%= user.email %>
+    </p>
 
-  <p>
-    <strong>First name:</strong>
-    <%= user.first_name %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">First name:</strong>
+      <%= user.first_name %>
+    </p>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= user.last_name %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">Last name:</strong>
+      <%= user.last_name %>
+    </p>
 
-  <p>
-    <strong>Role:</strong>
-    <%= user.role %>
-  </p>
+    <p class="mb-1">
+      <strong class="text-primary">Role:</strong>
+      <%= user.role %>
+    </p>
 
-  <p>
-    <strong>Is approved:</strong>
-    <%= user.is_approved %>
-  </p>
-
+    <p>
+      <strong class="text-primary">Is approved:</strong>
+      <%= user.is_approved ? 'Yes' : 'No' %>
+    </p>
+  </div>
 </div>

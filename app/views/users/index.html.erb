@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
+<div class="container my-5">
+  <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
   <% end %>
-</div>
 
-<%= link_to "New user", new_user_path %>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Users</h1>
+    <%= link_to "New user", new_user_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div id="users">
+    <% @users.each do |user| %>
+      <div class="card my-4">
+        <div class="card-body">
+          <%= render user %>
+        </div>
+        <div class="card-footer">
+          <%= link_to "Show this user", user, class: 'btn btn-info' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: user, local: true, class: 'needs-validation', novalidate: '') do |form| %>
   <% if user.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+  <div class="form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :role, style: "display: block" %>
-    <%= form.text_field :role %>
+  <div class="form-group">
+    <%= form.label :role %>
+    <%= form.text_field :role, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :is_approved, style: "display: block" %>
-    <%= form.check_box :is_approved %>
+  <div class="form-group form-check">
+    <%= form.check_box :is_approved, class: 'form-check-input' %>
+    <%= form.label :is_approved, class: 'form-check-label' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
