@@ -1,12 +1,12 @@
 <%= form_with(model: application, local: true, html: { class: 'form-horizontal', role: 'form' }) do |form| %>
   <% if application.errors.any? %>
     <div id="error_explanation" class="alert alert-danger" role="alert">
-      <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h2>
-      <ul>
-        <% application.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h2>
+    <ul>
+      <% application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
     </div>
   <% end %>
 
@@ -18,7 +18,8 @@
   <% elsif current_user.role == "Student" %>
     <div class="form-group">
       <%= form.label :user, class: 'control-label' %>
-      <label for="staticUser"></label><input type="text" class="form-control" readonly id="staticUser" value="<%= "#{current_user.full_name}" %>">
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <label for="staticUser"></label><input type="text" readonly class="form-control" id="staticUser" value="<%= "#{current_user.full_name}" %>">
     </div>
   <% end %>
 
@@ -26,7 +27,6 @@
     <%= form.label :course_id, class: 'control-label' %>
     <%= form.collection_select :course_id, Course.order(:course_number), :id, :full_course, {}, { class: 'form-control' } %>
   </div>
-
 
   <div class="form-group">
     <%= form.submit class: "btn btn-primary" %>
