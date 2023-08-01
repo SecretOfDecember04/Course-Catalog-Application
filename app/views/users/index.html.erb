@@ -12,14 +12,18 @@
 
   <div id="users">
     <% @users.each do |user| %>
-      <div class="card my-4">
-        <div class="card-body">
-          <%= render user %>
+      <% if current_user == user || current_user.role != 'Student' %>
+        <div class="card my-4">
+          <div class="card-body">
+            <%= render user %>
+          </div>
+          <div class="card-footer">
+            <% if current_user == user %>
+              <%= link_to "Show this user", user, class: 'btn btn-info' %>
+            <% end %>
+          </div>
         </div>
-        <div class="card-footer">
-          <%= link_to "Show this user", user, class: 'btn btn-info' %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
