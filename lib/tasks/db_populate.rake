@@ -10,6 +10,7 @@ namespace :db do
         role: "Admin",
         is_approved: true
       )
+      puts "Default admin user created! Email: admin@osu.edu, Password: password"
     end
     terms = { '1232' => 'Spring 2023', '1234' => 'Summer 2023', '1238' => 'Autumn 2023' }
     terms.each do |term_code, term_name|
