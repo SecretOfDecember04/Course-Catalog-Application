@@ -10,5 +10,6 @@ class AdminController < ApplicationController
 
   def index
     @applications = Application.all
+    @sections = Section.all
   end
 end
