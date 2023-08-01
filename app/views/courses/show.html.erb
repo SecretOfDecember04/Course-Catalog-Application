@@ -50,6 +50,7 @@
 </div>
 
 <div class="d-flex justify-content-start px-4 mt-3">
+  <%= link_to "Show sections", sections_path(@course.sections), class: 'btn btn-info mr-2' %>
   <%= link_to "Edit this course", edit_course_path(@course), class: 'btn btn-primary mr-2' %>
   <%= link_to "Back to courses", courses_path, class: 'btn btn-secondary mr-2' %>
   <%= button_to "Delete this course", @course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
