@@ -132,6 +132,10 @@ For instance, typing “Software” and clicking the “Search” button will re
 
 ![Search](/media/Search.png)
 
+You can also filter courses by term.
+
+![Sorting by Term](/media/Sorting%20by%20term.png)
+
 To create a course, please click the “New Course” button to the right of the search box and enter the detailed information for the new course.
 
 ![New Course](/media/New%20Course.png)
@@ -153,31 +157,12 @@ Besides the pending applications, a list of approved ones is also visible; Admin
 ![Show Application 1](/media/Show_Application_1.png)
 ![Show Application 2](/media/Show_Application_2.png)
 
-
 Selecting “Show this application” for an application allows it to be viewed in detail, including personal information, applied term, availability, courses taken, along with sections requiring graders. After considering, admins can approve the application, reject the application, or return to the former page via options at the bottom.
 
----
-## Template
+### Recommendations
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+As an admin or instructor, you can also write recommendations for students for other instructors to refer to.
 
-Things you may want to cover:
+![Recommendation](/media/New%20Recommendation.png)
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
