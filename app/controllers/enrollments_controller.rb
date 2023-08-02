@@ -20,6 +20,9 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments
   def create
     @enrollment = Enrollment.new(enrollment_params)
+    @enrollment.user_id = current_user.id
+    course = Course.find(params[:enrollment][:course_id])
+    @enrollment.course_name = course.full_course
 
     if @enrollment.save
       redirect_to(@enrollment, notice: 'Enrollment was successfully created.')
@@ -30,6 +33,9 @@ class EnrollmentsController < ApplicationController
 
   # PATCH/PUT /enrollments/1
   def update
+    @enrollment.user_id = current_user.id
+    course = Course.find(params[:enrollment][:course_id])
+    @enrollment.course_name = course.full_course
     if @enrollment.update(enrollment_params)
       redirect_to(@enrollment, notice: 'Enrollment was successfully updated.')
     else
@@ -51,6 +57,6 @@ class EnrollmentsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def enrollment_params
-    params.permit(:user_id, :course_name, :grade)
+    params.require(:enrollment).permit(:user_id, :course_name, :grade)
   end
 end
