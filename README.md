@@ -140,12 +140,6 @@ To create a course, please click the “New Course” button to the right of the
 
 ![New Course](/media/New%20Course.png)
 
-### Student Home page 
-
-![Student Home Page](media/Student%20Home%20Page.png)
-
-Upon signing as approved student. You will have many similar view as the admin. Where you can view all the courses within the course catalog, you will have the search functionality to help you search better with the specific course that you need. Furthermore, you will also have many other functionality such as Application where you can apply for becoming a specific courses grader. You will also have the course history where is a self report course history you can use it to record all the courses that you took. You will also have Availability section where you can select the time apvailiabity. Lastly, you will also have the profile page and the sign out functionality. However, a student view is very much different from a admin view. Which admin view can view all the pending application, approved application, and the courses needing graders tables. Admin also have the ability to approved the application. Furthermore, admin has some specific functionality such as modify courses, delete courses, and add courses that student view doesn't have.
-
 ### Request Approval
 
 Already-approved admins can see and approve others - instructors and admins - currently pending. To view this list, select “Admin Portal” from the navigation bar.
@@ -199,3 +193,7 @@ Students can self-report the courses they have taken and the grades they have re
 Students can select their availability on the Availability page, and only students whose free time coincides with the course schedule will be selected as graders. Please note that due to the design, students need to individually select their available time for each day of the week.
 
 ![Availability](/media/Availability%20slot.png)
+
+## Conclusion
+
+In conclusion, the OSU CSE Course Catalog Application is a comprehensive tool that fosters a streamlined process for hiring undergraduate students as graders. It provides a simplified interface for managing course data, grading applications, and user roles. The application offers functionalities tailored to the needs of students, instructors, and admins, supporting a seamless browsing and application process. The system ensures data accuracy by retrieving course information directly from the OSU API. Further, it extends its capabilities with features like application submission, course and section management, and recommendation forums. With a well-structured database, this application significantly enhances efficiency and organization in the CSE department's hiring process.
