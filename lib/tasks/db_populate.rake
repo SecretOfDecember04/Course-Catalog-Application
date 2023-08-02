@@ -32,6 +32,8 @@ namespace :db do
         short_description = course.dig('course', 'shortDescription')
         level = course.dig('course', 'catalogLevel')
         term_courses = term_code
+        graders = 0
+        graders_required = 0
 
         course_entry = Course.find_or_initialize_by(course_number: course_number, term: term_name)
         course_entry.update(
