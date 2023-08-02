@@ -43,6 +43,16 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :graders, 'Graders' %>
+    <%= form.number_field :graders, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :graders_required, 'Graders Required' %>
+    <%= form.number_field :graders_required, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= form.submit class: "btn btn-primary" %>
   </div>
 
