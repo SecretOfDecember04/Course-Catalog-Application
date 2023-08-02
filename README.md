@@ -116,7 +116,26 @@ You can log in from the landing page if you have an existing account. If the app
 
 ### Admin Home Page
 
-![Course catalog ](/media/Course%20catalog.png)
+Upon signing in as an approved admin, your homepage will look like this:
+
+![Admin Course Catalog](/media/Admin%20Course%20Catalog.png)
+
+As an approved admin, you can browse and modify the course catalog, approve new instructor/admin requests, reload the courses, and authorize student graders. The top-right navigation bar enables you to visit different pages in this application.
+
+By clicking “Home” on the screen, a paginated list of CSE courses in the database appears, displaying relevant course details.
+
+To view specific course details, click “Show this course” next to that course. You can edit each course by clicking “Edit” on the same column or “Delete” to delete the course.
+
+You can look for courses by number, name, term, or campus using the catalog’s search bar. Input your search and click the “Search” button.
+
+For instance, typing “Software” and clicking the “Search” button will reveal courses with “Software” in their name.
+
+![Search](/media/Search.png)
+
+To create a course, please click the “New Course” button to the right of the search box and enter the detailed information for the new course.
+
+![New Course](/media/New%20Course.png)
+
 
 ---
 ## Template
