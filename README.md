@@ -31,6 +31,10 @@
     ```
     You can then visit [http://localhost:3000](http://localhost:3000) on your browser to see the result.
 
+## Database Schema
+
+![Database Schema](/media/schema.png)
+
 
 ------
 ### Template
