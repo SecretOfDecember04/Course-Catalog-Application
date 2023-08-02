@@ -26,8 +26,8 @@
     <% @course.sections.each do |section| %>
       <tr>
         <td><%= section.section_number %></td>
-        <td><%= section.start_time %>
-        <td><%= section.end_time %></td>
+        <td><%= section.start_time.strftime("%I:%M %p") %>
+        <td><%= section.end_time.strftime("%I:%M %p") %></td>
         <td><%= section.days %></td>
         <td><%= section.instruction_mode %></td>
         <td class="text-center">

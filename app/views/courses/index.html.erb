@@ -29,6 +29,12 @@
     <%= button_tag type: 'submit', name: nil, id: "search-button", class: "btn btn-outline-success my-2 my-sm-0" do %>
       Search
     <% end %>
+    <% if current_user&.role == 'Admin' %>
+      <div class="ml-auto mr-3">
+        <%= link_to "New course", new_course_path, class: "btn btn-success ml-2" %>
+        <%= link_to 'Reload Courses', 'courses/reload', method: :get, class: "btn btn-primary ml-2" %>
+      </div>
+    <% end %>
   <% end %>
 
 
@@ -96,8 +102,4 @@
 
 <div class="d-flex justify-content-between align-items-center mt-3 px-4">
   <%== pagy_bootstrap_nav(@pagy) %>
-  <% if current_user&.role == 'Admin' %>
-    <%= link_to "New course", new_course_path, class: "btn btn-success" %>
-  <% end %>
-
 </div>
