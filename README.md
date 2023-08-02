@@ -23,6 +23,7 @@ While this system significantly reduces administrative efforts, it also empowers
     * Rails v7.0
 
 https://github.com/cse-3901-sharkey/2023-SU-Team-6-lab-2
+
 2. Check the 'Gemfile' for required project dependencies and install them using
 
     ```bash
