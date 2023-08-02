@@ -6,7 +6,6 @@
   <table id="gradersTable" class="table mt-3">
     <thead>
     <tr id="graderHeaderRow">
-      <th class="text-center">Section Number</th>
       <th class="text-center">Name</th>
       <th class="text-center">Course Number</th>
       <th class="text-center">Term</th>
@@ -15,14 +14,13 @@
     </tr>
     </thead>
     <tbody>
-    <% @sections.where('graders < graders_required').each do |section| %>
+    <% @courses.where('graders < graders_required').each do |course| %>
       <tr>
-        <td class="text-center"><%= section.section_number %></td>
-        <td class="text-center"><%= section.course.name %></td>
-        <td class="text-center"><%= section.course.course_number %></td>
-        <td class="text-center"><%= section.term %></td>
-        <td class="text-center"><%= section.graders %></td>
-        <td class="text-center"><%= section.graders_required %></td>
+        <td class="text-center"><%= course.name %></td>
+        <td class="text-center"><%= course.course_number %></td>
+        <td class="text-center"><%= course.term %></td>
+        <td class="text-center"><%= course.graders %></td>
+        <td class="text-center"><%= course.graders_required %></td>
       </tr>
     <% end %>
     </tbody>
