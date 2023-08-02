@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_01_212212) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_02_000126) do
   create_table "applications", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_01_212212) do
     t.datetime "updated_at", null: false
     t.string "term"
     t.text "short_description"
+    t.integer "graders"
+    t.integer "graders_required"
   end
 
   create_table "enrollments", force: :cascade do |t|
@@ -62,8 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_01_212212) do
     t.string "term"
     t.string "instructor"
     t.string "instruction_mode"
-    t.integer "graders"
-    t.integer "graders_required"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "course_id"
