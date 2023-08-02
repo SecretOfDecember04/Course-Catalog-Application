@@ -1,5 +1,6 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: %i[show edit update destroy]
+  before_action :set_section, only: %i[ show edit update destroy ]
+  before_action :require_admin, only: %i[ new edit update destroy ]
 
   # GET /sections or /sections.json
   def index
@@ -66,5 +67,13 @@ class SectionsController < ApplicationController
   def section_params
     params.require(:section).permit(:section_number, :course_id, :student_id, :term, :instructor, :days, :start_time,
                                     :end_time, :instruction_mode)
+  end
+
+  # Only allow admin to take specific action
+  def require_admin
+    unless current_user.role == 'Admin' && current_user.is_approved == true
+      flash[:alert] = "You must be an admin to access this action."
+      redirect_back(fallback_location: root_path)
+    end
   end
 end
