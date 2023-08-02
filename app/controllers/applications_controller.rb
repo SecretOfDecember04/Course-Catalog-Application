@@ -36,6 +36,9 @@ class ApplicationsController < ApplicationController
   def update
     respond_to do |format|
       if @application.update(application_params)
+        if params[:approved] == "true"
+          @application.course.increment!(:graders)
+        end
         format.html { redirect_to(application_url(@application), notice: "Application was successfully updated.") }
         format.json { render(:show, status: :ok, location: @application) }
       else
