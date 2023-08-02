@@ -106,12 +106,17 @@ If you’re not already an admin, you’ll need to sign up for the app. Just hit
 
 ![Sign up](/media/Sign%20up%20page.png)
 
-Only users with Ohio State University emails in the format name.#@osu.edu can sign up for the app. You must input an email and password to sign up successfully. Otherwise, you’ll receive an error. You can adjust these details later in the “Edit Account” section. New Admins and Instructors will initially have the same privileges as Students - solely browsing the database - because they must receive approval from an existing admin after signup.
+Only users with Ohio State University emails in the format `name.#@osu.edu` can sign up for the app. You must input an email and password to sign up successfully. Otherwise, you’ll receive an error. You can adjust these details later in the “Edit Account” section. New Admins and Instructors will initially have the same privileges as Students - solely browsing the database - because they must receive approval from an existing admin after signup.
+
+### Login
 
 ![Login in](/media/Login%20Page.png)
 
 You can log in from the landing page if you have an existing account. If the app detects a pre-existing session, it will auto-authenticate and direct you to the user's home page. If this isn’t the case, sign in using your email and password. Select “Remember Me” if your browser wishes to save your credentials.
 
+### Admin Home Page
+
+![Course catalog ](/media/Course%20catalog.png)
 
 ---
 ## Template
