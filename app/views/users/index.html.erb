@@ -16,11 +16,9 @@
         <div class="card my-4">
           <div class="card-body">
             <%= render user %>
+            <%= link_to "Show this user", user, class: 'btn btn-info' %>
           </div>
           <div class="card-footer">
-            <% if current_user == user %>
-              <%= link_to "Show this user", user, class: 'btn btn-info' %>
-            <% end %>
           </div>
         </div>
       <% end %>
