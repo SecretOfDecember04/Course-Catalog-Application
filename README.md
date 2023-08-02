@@ -17,41 +17,77 @@ While this system significantly reduces administrative efforts, it also empowers
 
 ## Installation Steps
 ### Prerequisites
+Make sure that you have set up the developenvironment and have the following requests installed:
+* Ruby v3.2.0
+* Rails v7.0
 
-1. Make sure that you have set up the developenvironment and have the following requests installed
-    * Ruby v3.2.0
-    * Rails v7.0
-
-https://github.com/cse-3901-sharkey/2023-SU-Team-6-lab-2
-
-2. Check the 'Gemfile' for required project dependencies and install them using
-
+## Configuration
+1. Clone https://github.com/cse-3901-sharkey/2023-SU-Team-6-lab-2
+2. Navigate to the application folder
+   ```bash
+   cd 2023-SU-Team-6-lab-2
+   ```
+3. Install the necessary gems
     ```bash
     bundle install
     ```
-
-3. Migrate the database and using
-
+4. Create and initialize the database
     ```bash
-    rails db:migrate
+    rails db:create db:migrate
     ```
-
-4. Populate the database with initial data from OSU API (https://content.osu.edu/v2/classes/searchLinks), run
-    
+5. Populate the database with the first pre-existing admin. This command will also generate courses from OSU API
     ```bash
-    rake db:populate
+    rails db:populate
     ```
-
-5. Start the rails server by running
-
-    ```bash
-    rails server
-    ```
-    You can then visit [http://localhost:3000](http://localhost:3000) on your browser to see the result.
+6. Run the following command to launch the server
+   ```bash
+   rails server
+   ```
+   You can then visit [http://localhost:3000](http://localhost:3000) on your browser to see the application.
+   At the same time, you will receive the following prompt in the console: 
+   ```
+   Default admin user created! Email: admin@osu.edu, Password: password
+   ```
+    Use this default admin user to log in to the website.
 
 ## Database Schema
 
 ![Database Schema](/media/schema.png)
+
+Our database schema is created in Ruby on Rails using Active Record Migrations. The schema structures the data we store in our SQL database, defining each table's fields and data types. 
+
+The database consists of eight tables:
+
+1. **applications:** Stores the applications from students who want to be considered for grading positions. 
+
+Fields include:
+- created_at: Timestamps of when the application was created.
+- updated_at: Timestamp of the last update of the application.
+- user_id: The user's id. Foreign key related to 'users' table.
+- course_id: The course's id for which the application is made. Foreign key related to 'courses' table.
+- approved: Boolean value indicating whether the application is approved.
+
+2. **availabilities:** Stores the available hours of the users.
+
+Fields include:
+- created_at: Timestamp when the record was created.
+- updated_at: Timestamp when the data was last updated.
+- user_id: Foreign key related to the 'users' table.
+- start_time: The time at which the user's availability begins.
+- end_time: The time at which the user's availability ends.
+- day: Day of the week when the user is available.
+
+3. **courses:** Contains data related to all the courses.
+
+4. **enrollments:** Contains data related to the course enrolment of each user.
+
+5. **recommendations:** Stores the recommendations given by instructors for students.
+
+6. **sections:** Contains data related to the sections of each course.
+
+7. **users:** Contains data for each user. All users have a role which is either Student, Instructor, or Admin, depending on the role
+
+Each table has relationships defined with other tables in the system using foreign keys, enabling more complex queries and join operations. For example, the `sections` table has relationships with both `courses` and `users`. 
 
 
 ------
