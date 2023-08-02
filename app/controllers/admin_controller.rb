@@ -12,5 +12,6 @@ class AdminController < ApplicationController
     @applications = Application.all
     @sections = Section.all
     @users = User.all
+    @courses = Course.all
   end
 end
