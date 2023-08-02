@@ -136,6 +136,25 @@ To create a course, please click the “New Course” button to the right of the
 
 ![New Course](/media/New%20Course.png)
 
+### Request Approval
+
+Already-approved admins can see and approve others - instructors and admins - currently pending. To view this list, select “Admin Portal” from the navigation bar.
+
+![Admin Portal Users](/media/Admin%20portal%20users.png)
+
+### Grader Application Management
+
+![Application](/media/Application.png)
+
+Admins can oversee student grader applications, including the approval or rejection process. By selecting “Admin Portal” from the navigation bar, admins can see a list of pending applications, each showing the individual’s email, applied term, and course and the options to view, approve or reject their application.
+
+Besides the pending applications, a list of approved ones is also visible; Admins can delete approved applications if they decide to withdraw students’ acceptance.
+
+![Show Application 1](/media/Show_Application_1.png)
+![Show Application 2](/media/Show_Application_2.png)
+
+
+Selecting “Show this application” for an application allows it to be viewed in detail, including personal information, applied term, availability, courses taken, along with sections requiring graders. After considering, admins can approve the application, reject the application, or return to the former page via options at the bottom.
 
 ---
 ## Template
