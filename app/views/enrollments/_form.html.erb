@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= hidden_field_tag :user_id, current_user.id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="form-group">
     <%= form.label :course_id, class: 'control-label' %>
