@@ -56,21 +56,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_002123) do
     t.integer "instructor_id"
     t.integer "student_id"
     t.integer "section_id"
+    t.string "instructor"
+    t.integer "section_number"
+    t.string "student"
     t.text "comments"
   end
 
   create_table "sections", force: :cascade do |t|
     t.string "section_number"
     t.string "term"
-    t.string "instructor"
     t.string "instruction_mode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "course_id"
-    t.integer "student_id"
+    t.integer "instructor_id"
     t.string "days"
     t.time "start_time"
     t.time "end_time"
+    t.string "instructor"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,5 +101,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_002123) do
   add_foreign_key "recommendations", "users", column: "instructor_id"
   add_foreign_key "recommendations", "users", column: "student_id"
   add_foreign_key "sections", "courses"
-  add_foreign_key "sections", "users", column: "student_id"
+  add_foreign_key "sections", "users", column: "instructor_id"
 end
