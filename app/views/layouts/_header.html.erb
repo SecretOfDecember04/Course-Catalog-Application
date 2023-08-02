@@ -29,6 +29,9 @@
               <%= link_to 'Admin Portal', admin_index_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
+              <%= link_to 'Users', users_path, method: :get, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
               <%= link_to 'Reload Courses', 'courses/reload', method: :get, class: "nav-link" %>
             </li>
           <% end %>
