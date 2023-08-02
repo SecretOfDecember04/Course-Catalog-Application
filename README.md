@@ -142,7 +142,7 @@ To create a course, please click the “New Course” button to the right of the
 
 ### Student Home page 
 
-![Student Home Page](/media/Student%20Home%20Page.png)
+![Student Home Page](media/Student%20Home%20Page.png)
 
 Upon signing as approved student. You will have many similar view as the admin. Where you can view all the courses within the course catalog, you will have the search functionality to help you search better with the specific course that you need. Furthermore, you will also have many other functionality such as Application where you can apply for becoming a specific courses grader. You will also have the course history where is a self report course history you can use it to record all the courses that you took. You will also have Availability section where you can select the time apvailiabity. Lastly, you will also have the profile page and the sign out functionality. However, a student view is very much different from a admin view. Which admin view can view all the pending application, approved application, and the courses needing graders tables. Admin also have the ability to approved the application. Furthermore, admin has some specific functionality such as modify courses, delete courses, and add courses that student view doesn't have.
 
