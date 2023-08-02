@@ -1,6 +1,7 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: %i[ show edit update destroy ]
   before_action :require_admin, only: %i[ new edit update destroy ]
+  validates :section_number, uniqueness: { scope: :term, message: "and term combination should be unique" }
 
   # GET /sections or /sections.json
   def index
