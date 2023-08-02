@@ -172,3 +172,30 @@ As an admin or instructor, you can also write recommendations for students for o
 ![Recommendation](/media/New%20Recommendation.png)
 
 
+### Student Home Page
+
+The Home Page seen by both students and admins is more or less the same, but students are not able to make any changes to courses and sections.
+
+Upon signing as an approved student. You will have many similar views as the admin. Where you can view all the courses within the course catalog, you will have the search functionality to help you search better with the specific course that you need. Furthermore, you will also have many other functionality, such as Application where you can apply to become a particular grader. You will also have the course history, a self-report course history you can use to record all the courses you took. You will also have Availability section where you can select the time availability. Lastly, you will also have the profile page and the sign-out functionality. However, a student view is very much different from an admin view. Which admin view can view all the pending applications, approved applications, and the courses needing graders tables. Admin also can support the application. Furthermore, admin has specific functionality such as modifying courses, deleting courses, and adding systems that student view doesn't have.
+
+![Student Home Page 1](/media/Course%20catalog.png)
+![Student Home Page 2](/media/Course%20catalog2.png)
+
+### Application
+
+Students can directly click the Apply button on the Home Page to apply to become a grader for this course, or they can click on the navigation bar in the upper right corner to enter the Applications page and select course applications.
+
+![Application](/media/Application%20page.png)
+![Creating Application](/media/Creating%20application.png)
+
+### Enrollment History
+
+Students can self-report the courses they have taken and the grades they have received on the Course History page for instructors' reference. However, it is important to note that self-reporting does not guarantee authenticity.
+
+![New Enrollment](/media/New%20Enrollemnt.png)
+
+### Availability
+
+Students can select their availability on the Availability page, and only students whose free time coincides with the course schedule will be selected as graders. Please note that due to the design, students need to individually select their available time for each day of the week.
+
+![Availability](/media/Availability%20slot.png)
