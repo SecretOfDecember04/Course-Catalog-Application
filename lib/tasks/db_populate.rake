@@ -41,7 +41,9 @@ namespace :db do
           description:,
           short_description:,
           level:,
-          term: term_courses
+          term: term_courses,
+          graders:,
+          graders_required:
         )
 
         sections = course['sections']
@@ -49,8 +51,6 @@ namespace :db do
           section_number = section['classNumber']
           term_sections = term_code
           instruction_mode = section['instructionMode']
-          graders = 0
-          graders_required = 0
 
           days_hash = { monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday', thursday: 'Thursday', friday: 'Friday' }
           days = ""
@@ -85,8 +85,6 @@ namespace :db do
             section_number:,
             term: term_courses,
             instruction_mode:,
-            graders:,
-            graders_required:,
             days:,
             start_time:,
             end_time:,
