@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :require_admin, only: %i[ edit update destroy ]
 
   # GET /courses or /courses.json
   def index
@@ -89,5 +90,13 @@ class CoursesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def course_params
     params.require(:course).permit(:course_number, :subject, :name, :description, :short_description, :level)
+  end
+
+  # Only allow admin to take specific action
+  def require_admin
+    unless current_user.role == 'Admin' && current_user.is_approved == true
+      flash[:alert] = "You must be an admin to access this action."
+      redirect_back(fallback_location: root_path)
+    end
   end
 end
